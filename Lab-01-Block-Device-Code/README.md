@@ -57,4 +57,4 @@ The policy remains in Report-only mode. It has not been switched to On. Enforcem
 
 ## Evidence
 
-Screenshots are intended to be stored in the `screenshots/` folder. Remove or redact personal identifiers, tenant-specific details, and any secrets or temporary device codes before publishing evidence.
+Screenshots are intended to be stored in the `screenshots/` folder.
