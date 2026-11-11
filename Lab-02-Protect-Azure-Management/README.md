@@ -56,6 +56,19 @@ This confirms that the policy appeared in the Report-only evaluation for the mat
 
 **Lab 02 configuration and policy matching: completed.** The policy remains in Report-only mode. Enforced MFA was not tested.
 
-## Evidence
+## Evidence screenshots
 
-Add the screenshots listed in [screenshots/README.md](screenshots/README.md). Redact personal identifiers, tenant details, IP addresses, request IDs, and other sensitive information before publishing evidence.
+The following links point directly to the screenshot files currently stored in the repository:
+
+- [Excluded user](screenshots/excluded%20user)
+- [Included user](screenshots/included%20user)
+- [Target resource selection](screenshots/Target%20resource%20name)
+- [Grant policy](screenshots/Grant%20policy)
+- [Screenshot 05](screenshots/Screenshot%202026-11-10%20202722.png)
+- [Screenshot 06](screenshots/Screenshot%202026-11-10%20202827.png)
+- [Screenshot 07](screenshots/Screenshot%202026-11-10%20203834.png)
+- [Screenshot 08](screenshots/Screenshot%202026-11-10%20204727.png)
+- [Screenshot 09](screenshots/Screenshot%202026-11-10%20204936.png)
+- [Screenshot 10](screenshots/Screenshot%202026-11-10%20205346.png)
+
+See the [screenshot index](screenshots/README.md) for the complete evidence list.
