@@ -13,7 +13,7 @@ The work is performed in a non-production Microsoft Entra tenant using a dedicat
 | Lab | Exercise | Status |
 |---|---|---|
 | 01 | [Block Device Code Authentication](Lab-01-Block-Device-Code/README.md) | Completed — Report-only evaluation verified |
-| 02 | Protect Azure Management | Planned |
+| 02 | [Protect Azure Management](Lab-02-Protect-Azure-Management/README.md) | Completed — Report-only evaluation verified |
 | 03 | Require Terms of Use Acceptance | Planned |
 | 04 | Protect Security Information Registration | Planned |
 | 05 | Protect Device Registration and Join | Planned |
