@@ -2,10 +2,10 @@
 
 The links below open the actual PNG files stored in this folder.
 
-- [Screenshot 01](Screenshot%202026-11-10%20201809.png)
-- [Screenshot 02](Screenshot%202026-11-10%20201821.png)
-- [Screenshot 03](Screenshot%202026-11-10%20202428.png)
-- [Screenshot 04](Screenshot%202026-11-10%20202631.png)
+- [Screenshot 01](excluded%20user)
+- [Screenshot 02](included%20user)
+- [Screenshot 03](Target%20resource%20name)
+- [Screenshot 04](Grant%20policy)
 - [Screenshot 05](Screenshot%202026-11-10%20202722.png)
 - [Screenshot 06](Screenshot%202026-11-10%20202827.png)
 - [Screenshot 07](Screenshot%202026-11-10%20203834.png)
