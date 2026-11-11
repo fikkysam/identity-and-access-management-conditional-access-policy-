@@ -29,7 +29,7 @@ Security information registration changes the authentication methods available t
 
 ## Current status
 
-<badge>In progress</badge>
+**Status: In progress**
 
 The screenshots show the policy scope and the **Register security information** user action selected. However, the Grant section still shows **0 controls selected**, and the policy is on the creation screen. The policy has therefore not yet been completed or validated.
 
