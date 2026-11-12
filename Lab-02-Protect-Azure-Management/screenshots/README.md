@@ -1,6 +1,6 @@
 # Lab 02 — Protect Azure Management: Screenshot Evidence
 
-This folder contains the eight replacement screenshots documenting the `Protect-Azure-Management` Microsoft Entra Conditional Access policy.
+This folder documents the `Protect-Azure-Management` Microsoft Entra Conditional Access policy.
 
 ## Evidence index
 
@@ -10,27 +10,36 @@ This folder contains the eight replacement screenshots documenting the `Protect-
 | 02 | [02-included-test-user.png](02-included-test-user.png) | Debbie O selected as the included test user |
 | 03 | [03-target-resource-azure-resource-manager.png](03-target-resource-azure-resource-manager.png) | Azure Resource Manager selected as the target resource |
 | 04 | [04-grant-control-require-mfa.png](04-grant-control-require-mfa.png) | Grant access with Require multifactor authentication |
-| 05 | [05-policy-configuration-report-only.png](05-policy-configuration-report-only.png) | Policy configuration and Report-only enablement |
-| 06 | [06-policy-details-summary.png](06-policy-details-summary.png) | Policy details, Report-only state, and MFA requirement |
+| 05 | [05-policy-configuration-report-only.png](05-policy-configuration-report-only.png) | Original policy configuration in Report-only mode |
+| 06 | [06-policy-details-summary.png](06-policy-details-summary.png) | Original policy details and Report-only state |
 | 07 | [07-azure-portal-sign-in-event.png](07-azure-portal-sign-in-event.png) | Azure Portal sign-in event associated with Azure Resource Manager |
-| 08 | [08-report-only-policy-evaluation.png](08-report-only-policy-evaluation.png) | Conditional Access Report-only evaluation |
+| 08 | [08-report-only-policy-evaluation.png](08-report-only-policy-evaluation.png) | Original Report-only policy evaluation |
+| 09 | [09-enforced-mfa-conditional-access-success.png](09-enforced-mfa-conditional-access-success.png) | Enforced policy evaluation: `Protect-Azure-Management`, MFA grant control, result Success |
+| 10 | [10-mfa-authentication-details.png](10-mfa-authentication-details.png) | Authentication details: Previously satisfied, Succeeded Yes, MFA requirement satisfied |
 
 ## Policy configuration
 
 - **Policy name:** `Protect-Azure-Management`
-- **Included test user:** Debbie O
-- **Excluded identity:** One administrator account
+- **Included test user:** Debbie O (`debbie@fikayo.onmicrosoft.com`)
+- **Excluded identity:** Administrator account
 - **Target resource:** Azure Resource Manager
 - **Grant control:** Grant access; Require multifactor authentication
-- **Policy state:** Report-only
-- **Conditions:** No conditions selected
+- **Policy state during enforcement validation:** On
+- **Conditions:** No additional conditions selected
 
-## Test result and interpretation
+## Enforcement validation
 
-The sign-in evidence shows an Azure Portal sign-in with Azure Resource Manager as the resource. The Report-only evaluation lists `Protect-Azure-Management` and the MFA grant control. The displayed result begins `Report-only: User action required`; the remaining text is truncated in the screenshot.
+The additional sign-in evidence records:
 
-Because the policy is in **Report-only** mode, it is evaluated for impact but is not enforced. This evidence documents policy configuration and Report-only evaluation; it does not demonstrate an enforced MFA challenge.
+- Application: Azure Portal
+- Resource: Azure Resource Manager
+- Sign-in status: Success
+- `Protect-Azure-Management` grant control: MFA
+- `Protect-Azure-Management` result: **Success**
+- Authentication details: **Previously satisfied**, **Succeeded: Yes**, with the MFA requirement satisfied
+
+**Interpretation:** The policy evaluation succeeded and the MFA requirement was satisfied. The authentication details say **Previously satisfied**, so the screenshots do not establish that a fresh MFA prompt appeared during this specific sign-in. Use the precise wording “MFA requirement satisfied through Conditional Access.”
 
 ## Privacy handling
 
-Names, email addresses, tenant/account header details, request IDs, and policy configuration remain visible. IP address information is blurred in the sign-in event screenshot.
+Names, email addresses, tenant/account header details, request IDs, and policy configuration remain visible. IP address information should be blurred in any sign-in log screenshot uploaded to this repository.
