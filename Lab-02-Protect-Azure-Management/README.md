@@ -61,4 +61,4 @@ This confirms that the policy appeared in the Report-only evaluation for the mat
 
 The screenshot index is maintained in [screenshots/README.md](screenshots/README.md).
 
-**Evidence upload status:** The original eight screenshots were removed in preparation for replacing them with IP-only redacted versions. The replacement image files have not yet been uploaded, so the screenshots folder currently contains only its README index. The evidence list will become clickable once the replacement images are added.
+**Evidence status:** The eight replacement screenshots are now present in this folder. See the [screenshot index](screenshots/README.md) for the numbered evidence files.
