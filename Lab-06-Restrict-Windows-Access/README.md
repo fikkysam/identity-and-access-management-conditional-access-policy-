@@ -31,7 +31,19 @@ The evidence supports that the named Conditional Access policy blocked the test 
 The policy targets All resources for the selected user and Browser client. It blocks that user's matching Windows browser access broadly. The administrator account is excluded. Keep an administrative session available when managing the policy.
 
 ## Evidence
-See the `screenshots/` folder. Screenshots document identity scope, Windows platform selection, Browser client selection, Block access grant, policy state, the failed browser sign-in, and policy-specific evaluation.
+
+The cleaned screenshot set uses eight unique filenames:
+
+1. `01-test-user-inclusion-don-paul.png`
+2. `02-administrator-exclusion.png`
+3. `03-windows-platform-condition.png`
+4. `04-browser-client-condition.png`
+5. `05-block-access-grant-and-enabled-state.png`
+6. `06-failed-sign-in-event.png`
+7. `07-conditional-access-policy-block-result.png`
+8. `08-microsoft-error-53003-windows-platform-details.png`
+
+The evidence index is in `screenshots/README.md`. The PNGs should be uploaded with these exact names from the cleaned evidence ZIP.
 
 ## Cleanup / future work
 For a reusable lab tenant, either leave the policy On as an intentional demonstration or turn it Off after evidence capture. Do not remove the administrator exclusion while the policy is enabled.
