@@ -2,87 +2,77 @@
 
 ## Objective
 
-Use the Microsoft Entra Conditional Access **Filter for devices** condition to block access from devices that are not identified as company-owned.
+Use Microsoft Entra Conditional Access **Filter for devices** to block browser access when a device is not identified as company-owned.
 
-The lab uses a deliberately broad non-company rule:
+## Policy configuration
 
-```
+| Setting | Observed/configured value |
+|---|---|
+| Policy name | `Block-NonCompany-Devices` |
+| Included identity | Don Paul (`don@fikayo.onmicrosoft.com`) |
+| Excluded identity | Administrator account |
+| Target resources | All resources (formerly All cloud apps) |
+| Client app | Browser |
+| Filter mode | Include filtered devices in policy |
+| Device property | `deviceOwnership` |
+| Operator | Not equals |
+| Value | `Company` |
+| Filter expression | `device.deviceOwnership -ne "Company"` |
+| Grant control | Block access |
+| Policy state at enforcement test | On |
+
+The previous Lab 06 policy, `restrict windows Access`, was shown as Disabled in the same sign-in event's Conditional Access tab. This avoids attributing the Lab 07 test result to the previous policy.
+
+## Test procedure and observed result
+
+A browser sign-in to **My Apps** was attempted as Don Paul from the Windows workstation on November 12, 2026.
+
+Microsoft sign-in troubleshooting details showed:
+- Error code: `53003`
+- Application: My Apps
+- Device platform reported by Entra: Windows 10
+- Device state: Unregistered
+- Device identifier: Not available
+
+The Conditional Access tab for the matching sign-in event showed:
+- Policy: `Block-NonCompany-Devices`
+- Grant control: **Block**
+- Result: **Failure**
+- Previous Lab 06 policy `restrict windows Access`: **Disabled**
+
+This policy-specific evaluation is the evidence that the Lab 07 policy caused the block. Error 53003 is consistent with a Conditional Access denial, while the Conditional Access tab identifies the actual policy and control result.
+
+## Why the negative ownership operator was used
+
+Microsoft Entra evaluates device filter rules using device authentication. For an unregistered device, its device properties are considered null because the device object is not present in the directory. Microsoft documents that negative operators such as NotEquals can match unregistered devices, whereas positive operators do not.
+
+Therefore, the expression:
+
+```text
 device.deviceOwnership -ne "Company"
 ```
 
-This rule matches devices whose ownership is `Personal` and also unregistered devices, whose device properties are evaluated as null. It is chosen because the current test workstation was reported as **Unregistered** in the Lab 06 sign-in details. A positive rule such as `device.deviceOwnership -eq "Personal"` would not match an unregistered device.
+matches devices not identified as Company-owned, including this unregistered test workstation. It does **not** positively establish that the workstation is classified as Personal. Testing a device explicitly registered with ownership set to Personal would be a separate validation scenario.
 
-## Planned policy
+Reference: [Microsoft Learn — Filter for devices as a condition in Conditional Access](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-condition-filters-for-devices)
 
-| Setting | Value |
-|---|---|
-| Policy name | `CA07-Block-NonCompany-Devices` |
-| Users — Include | Don Paul (`don@fikayo.onmicrosoft.com`) |
-| Users — Exclude | Administrator account |
-| Target resources | All resources |
-| Client apps | Browser |
-| Filter for devices — Configure | Yes |
-| Devices matching the rule | Include filtered devices in policy |
-| Filter rule | `device.deviceOwnership -ne "Company"` |
-| Grant | Block access |
-| Policy state | Report-only during setup; On for the single enforcement test |
+## Outcome
 
-## Important preparation
+**Completed — policy-specific Windows browser block verified.**
 
-**Turn off the Lab 06 policy before testing Lab 07.** Lab 06 blocks Don Paul's Windows browser access to all targeted resources. If it remains On, it can independently block the Lab 07 test and make attribution ambiguous.
+The matching sign-in event shows the named Lab 07 policy with Block / Failure. The sign-in details classify the device as unregistered and the platform as Windows 10, even though the physical workstation used for the test was Windows 11.
 
-1. Open Entra ID → Conditional Access → Policies.
-2. Open `restrict windows Access` (Lab 06).
-3. Set Enable policy to **Off** and save. Do not delete the policy or its evidence.
-4. Confirm the Lab 06 policy is Off before proceeding.
+## Evidence
 
-## Configuration procedure
+See the `screenshots/` folder and its evidence index. Evidence includes:
+- All resources target selection
+- Device filter mode and exact ownership rule
+- Failed sign-in event
+- Microsoft sign-in error 53003 and unregistered device details
+- Conditional Access tab showing `Block-NonCompany-Devices` with Block / Failure and Lab 06 disabled
 
-1. Open Microsoft Entra admin center → Entra ID → Conditional Access → Policies → New policy.
-2. Name the policy `CA07-Block-NonCompany-Devices`.
-3. Under Users, include only Don Paul. Under Exclude, keep the administrator account excluded.
-4. Under Target resources, select All resources for this controlled lab scenario.
-5. Under Conditions → Client apps, configure **Browser** only.
-6. Under Conditions → Filter for devices, set Configure to **Yes**.
-7. Select **Include filtered devices in policy**.
-8. Use the rule builder or rule syntax to enter exactly:
-   `device.deviceOwnership -ne "Company"`
-9. Under Access controls → Grant, select **Block access**.
-10. Keep the policy in Report-only while checking the configuration. Before the single enforcement test, change the policy to **On** and save. Do not perform a separate Report-only sign-in test.
-11. Verify the administrator exclusion is still present before testing.
+## Security scope and cleanup
 
-## Single enforcement test
+This policy applies to the selected test user, Browser client, and all targeted resources when the device filter matches. The administrator account remains excluded.
 
-1. Use a browser on the Windows workstation used in Lab 06.
-2. Open an Incognito/InPrivate window.
-3. Navigate to `https://myapps.microsoft.com`.
-4. Sign in as Don Paul (`don@fikayo.onmicrosoft.com`).
-5. Record the actual result. With the current device reported as unregistered, the negative ownership operator is expected to match the null ownership attribute and the policy is expected to block the sign-in.
-6. In Entra admin center, open Monitoring & health → Sign-in logs.
-7. Locate the matching interactive sign-in for Don Paul and open its Conditional Access tab.
-8. Confirm that `CA07-Block-NonCompany-Devices` appears with Grant control **Block** and Result **Failure**. Record the event time, application, device details, and correlation ID.
-
-## Interpretation and limitations
-
-Microsoft Entra evaluates device filter rules using device authentication. For an unregistered device, device properties are null. Positive operators (for example, `-eq "Personal"`) do not match an unregistered device; negative operators (for example, `-ne "Company"`) do.
-
-This exercise therefore validates a **non-company / not-known-to-be-company-owned** rule. It does not prove the workstation is positively classified as Personal. To validate the Personal and Company values separately, use registered devices whose `device.deviceOwnership` values are explicitly Personal and Company.
-
-The policy targets all resources for one test user and the Browser client. The administrator is excluded. Leave Lab 07 On only if you intend to continue blocking Don Paul's browser access from non-company or unregistered devices. Otherwise, turn it Off after evidence capture.
-
-## Evidence checklist
-
-Capture the following screenshots:
-
-- Lab 06 policy switched Off before the Lab 07 test.
-- Lab 07 user inclusion and administrator exclusion.
-- Target resources and Browser client condition.
-- Filter for devices configured with Include filtered devices in policy.
-- Exact filter rule: `device.deviceOwnership -ne "Company"`.
-- Block access grant and policy enabled state.
-- Microsoft sign-in result.
-- Matching sign-in log's Conditional Access tab showing this policy's Block / Failure result.
-
-## Cleanup
-
-After evidence capture, decide whether to leave the policy On as a demonstration or turn it Off. Do not remove the administrator exclusion while the policy is enabled.
+Leave the policy On only if you intend to continue blocking Don Paul's browser access from devices not identified as company-owned. Otherwise, switch it Off after capturing evidence. Do not remove the administrator exclusion while the policy is enabled.
