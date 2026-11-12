@@ -1,10 +1,14 @@
-# Lab 02 — Protect Azure Management
+# Lab 02 — Protect Azure Management: Screenshot Evidence
 
-## Evidence screenshots
+## Upload status
 
-This folder contains eight screenshots documenting the `Protect-Azure-Management` Microsoft Entra Conditional Access policy.
+The original screenshots have been removed. The replacement IP-only redacted screenshots have **not yet been uploaded**. At present, this folder contains this index file only.
 
-| # | Screenshot | Evidence |
+Once the replacement images are uploaded, use the exact filenames below so the evidence index and Lab 02 documentation remain consistent.
+
+## Planned evidence index
+
+| # | Filename | Evidence |
 |---|---|---|
 | 01 | `01-excluded-administrator.png` | Administrator account excluded from the policy |
 | 02 | `02-included-test-user.png` | Debbie O selected as the included test user |
@@ -27,10 +31,10 @@ This folder contains eight screenshots documenting the `Protect-Azure-Management
 
 ## Test result and interpretation
 
-The sign-in evidence shows an Azure Portal sign-in with Azure Resource Manager as the resource. The Report-only evaluation lists `Protect-Azure-Management` and the MFA grant control. The displayed result begins `Report-only: User action required` (the screenshot truncates the remaining text).
+The sign-in evidence captured for this lab showed an Azure Portal sign-in with Azure Resource Manager as the resource. The Report-only evaluation listed `Protect-Azure-Management` and the MFA grant control. The displayed result began `Report-only: User action required`; the remaining text was truncated in the original screenshot.
 
 Because the policy is in **Report-only** mode, it is evaluated for impact but is not enforced. This evidence documents policy configuration and Report-only evaluation; it does not demonstrate an enforced MFA challenge.
 
 ## Privacy handling
 
-Names, email addresses, tenant/account header details, request IDs, and policy configuration remain visible to preserve the original lab context. IP address information is blurred in the sign-in event screenshot.
+The replacement evidence is intended to retain names, email addresses, tenant/account header details, request IDs, and policy configuration. Only IP address information should be blurred, as requested.
