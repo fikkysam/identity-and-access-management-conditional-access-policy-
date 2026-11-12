@@ -1,20 +1,15 @@
 # Lab 07 — Screenshot Evidence
 
-Add the configuration and test screenshots listed in the Lab 07 README to this folder. Use numbered, descriptive PNG filenames. The actual screenshots should only be committed after they have been captured from the tenant.
+The numbered evidence set documents the configured device ownership filter and the policy-specific enforcement result.
 
-Suggested filenames:
-- `01-lab06-policy-disabled-before-lab07.png`
-- `02-test-user-inclusion-and-admin-exclusion.png`
-- `03-target-resources-and-browser-client.png`
-- `04-device-filter-include-mode.png`
-- `05-device-ownership-rule-noncompany.png`
-- `06-block-access-grant-and-enabled-state.png`
-- `07-microsoft-sign-in-result.png`
-- `08-conditional-access-policy-evaluation.png`
+| File | Evidence |
+|---|---|
+| `01-all-resources-target-selection.png` | All resources selected for the policy |
+| `02-device-ownership-filter-rule.png` | Include filtered devices in policy; rule `device.deviceOwnership -ne "Company"` |
+| `03-failed-microsoft-sign-in-error-53003.png` | My Apps sign-in denied; Entra reports Windows 10 and Unregistered |
+| `04-sign-in-events-failure.png` | Failed interactive sign-in event for Don Paul |
+| `05-conditional-access-block-noncompany-policy-failure.png` | Conditional Access tab shows `Block-NonCompany-Devices`, Block / Failure, and Lab 06 disabled |
 
-Expected filter rule:
-`device.deviceOwnership -ne "Company"`
+**Interpretation:** Microsoft's device-filter documentation says that all device properties are null for unregistered devices, and negative operators can match them. The observed sign-in details show the device was Unregistered. The sign-in's Conditional Access tab identifies this Lab 07 policy as the blocking policy.
 
-This negative operator is intentional: the test workstation was previously reported as Unregistered, and Microsoft Entra evaluates device properties as null for unregistered devices. A negative ownership operator can therefore match it. The test still needs to verify the policy-specific evaluation in sign-in logs.
-
-Never upload passwords, tokens, recovery codes, or private keys.
+The PNG evidence files are prepared separately in the Lab 07 evidence ZIP. Upload them to this folder using the exact filenames above.
