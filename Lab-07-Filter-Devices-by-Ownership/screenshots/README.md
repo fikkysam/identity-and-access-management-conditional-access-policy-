@@ -12,4 +12,3 @@ The numbered evidence set documents the configured device ownership filter and t
 
 **Interpretation:** Microsoft's device-filter documentation says that all device properties are null for unregistered devices, and negative operators can match them. The observed sign-in details show the device was Unregistered. The sign-in's Conditional Access tab identifies this Lab 07 policy as the blocking policy.
 
-The PNG evidence files are prepared separately in the Lab 07 evidence ZIP. Upload them to this folder using the exact filenames above.
