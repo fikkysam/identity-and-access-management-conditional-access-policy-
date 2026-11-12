@@ -17,48 +17,55 @@ Azure management access can expose administrative operations over Azure resource
 
 ## Policy configuration
 
-| Setting | Observed configuration |
+| Setting | Configuration |
 |---|---|
 | Policy name | `Protect-Azure-Management` |
-| Included users | 1 user — Debbie O |
-| Excluded identities | 1 user — administrator account |
-| Target resources | 1 resource — Azure Resource Manager |
+| Included users | Debbie O — dedicated test user |
+| Excluded identities | Administrator account |
+| Target resources | Azure Resource Manager |
 | Grant control | Grant access; Require multifactor authentication |
 | Conditions | None selected |
-| Policy state | Report-only |
+| Policy state during enforcement validation | On |
 
-**Resource naming note:** The lab guide describes the target as Microsoft Azure Management. In the tenant's resource picker, the selected resource was displayed as **Azure Resource Manager**. The sign-in event used for validation also showed **Azure Resource Manager** as its resource. This is the resource actually configured and tested in this lab.
+**Resource naming note:** The resource picker and the sign-in event both identified the target as **Azure Resource Manager**.
 
-## Test approach
+## Test procedure
 
-1. Sign in to the Azure portal as the dedicated test user.
-2. Access the Azure portal and generate a sign-in event for Azure Resource Manager.
-3. Open the matching interactive sign-in event in Microsoft Entra sign-in logs.
-4. Inspect the Report-only tab and locate `Protect-Azure-Management`.
-5. Record the grant control and policy evaluation result.
+1. Enable `Protect-Azure-Management` by setting its policy state to **On**.
+2. Sign in to the Azure portal as the included test user.
+3. Open the corresponding interactive sign-in event in Microsoft Entra sign-in logs.
+4. Inspect the **Conditional Access** tab and locate `Protect-Azure-Management`.
+5. Inspect **Authentication details** to verify whether the MFA requirement was satisfied.
 
-See [configuration.md](configuration.md) and [test-results.md](test-results.md) for the procedure and observed evidence.
+## Validation results
 
-## Outcome
-
-The fresh interactive sign-in event showed:
+The captured interactive sign-in event showed:
 
 - User: `debbie@fikayo.onmicrosoft.com`
 - Application: Azure Portal
 - Resource: Azure Resource Manager
 - Sign-in status: Success
-- Conditional Access Report-only policy: `Protect-Azure-Management`
+- Policy: `Protect-Azure-Management`
 - Grant control: MFA
-- Displayed result: **Report-only: User action required** (the result text was truncated in the original screenshot)
+- Conditional Access policy result: **Success**
+- Authentication details: **Previously satisfied**; **Succeeded: Yes**; result detail indicates the MFA requirement was satisfied
 
-This confirms that the policy appeared in the Report-only evaluation for the matching user/resource event and that the MFA grant control was evaluated. The displayed result indicates additional user interaction would be required for the MFA control. Because the policy is Report-only, it did not enforce an MFA challenge.
+### Interpretation
+
+The sign-in log confirms that the Conditional Access policy evaluated successfully and that its MFA requirement was satisfied. The authentication details specifically report **Previously satisfied**. This means the MFA requirement was met by an earlier authentication step or session; this event does **not** prove that a new MFA prompt was displayed during this sign-in.
+
+The evidence therefore supports the claim **“MFA requirement satisfied through Conditional Access”**, not **“a new MFA prompt was triggered.”**
+
+## Security notes
+
+- Keep the administrator exclusion in place while testing to reduce the risk of administrative lockout.
+- Use a dedicated test identity and a non-production tenant for policy validation.
+- No additional device, location, network, or client-app conditions were configured. This keeps the test focused on the MFA grant requirement for Azure Resource Manager.
 
 ## Status
 
-**Lab 02 configuration and policy matching: completed.** The policy remains in Report-only mode. Enforced MFA was not tested.
+**Configuration and enforcement-mode policy evaluation: validated.** The sign-in log shows a successful `Protect-Azure-Management` evaluation with the MFA grant requirement satisfied. Authentication details indicate that MFA was previously satisfied rather than newly prompted in this event.
 
-## Evidence screenshots
+## Evidence
 
-The screenshot index is maintained in [screenshots/README.md](screenshots/README.md).
-
-**Evidence status:** The eight replacement screenshots are now present in this folder. See the [screenshot index](screenshots/README.md) for the numbered evidence files.
+See [screenshots/README.md](screenshots/README.md) for the eight original configuration/report-only screenshots and the two additional enforcement-validation screenshots.
