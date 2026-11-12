@@ -17,7 +17,7 @@ The work is performed in a non-production Microsoft Entra tenant using a dedicat
 | 03 | [Require Terms of Use Acceptance](Lab-03-Terms-of-Use/README.md) | Completed — acceptance, sign-in and audit evidence verified |
 | 04 | [Protect Security Information Registration](Lab-04-Secure-Security-Info-Registration/README.md) | Configuration and validation evidence captured — MFA grant configured, policy On, Authenticator challenge and Conditional Access success documented |
 | 05 | [Protect Device Registration and Join](Lab-05-Protect-Device-Registration/README.md) | Configuration completed — end-to-end test pending (VM limitation) |
-| 06 | Restrict by Operating System | Planned |
+| 06 | [Restrict Access by Operating System](Lab-06-Restrict-Windows-Access/README.md) | Completed — Windows browser block verified in Conditional Access sign-in logs |
 | 07 | Filter Devices by Ownership | Planned |
 | 08 | Require App Protection Policy for Mobile Access | Planned |
 | 09 | Authentication Context | Planned |
