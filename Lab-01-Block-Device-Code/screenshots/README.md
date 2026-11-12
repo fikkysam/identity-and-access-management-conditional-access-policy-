@@ -1,20 +1,22 @@
-# Lab 01 — Block Device Code: Screenshot Evidence
+# Lab 01 — Block Device Code Authentication: Screenshot Evidence
 
-This folder contains the selected evidence screenshots for the **Block Device Code Conditional Access** lab.
+These are the selected screenshots required to document the Lab 01 configuration and test results. The filenames are numbered in the order used by this evidence index.
 
-## Screenshot index
+## Evidence index
 
-| Filename | Evidence |
-|---|---|
-| `01-conditional-access-policy-overview.png` | Conditional Access policy overview |
-| `02-policy-user-inclusion.png` | Test user included in the policy |
-| `03-policy-administrator-exclusion.png` | Administrator excluded from the policy |
-| `04-device-code-flow-condition.png` | Device Code Flow condition selected |
-| `08-report-only-policy-evaluation.png` | Report-only policy evaluation |
-| `11-user-sign-in-logs.png` | User sign-in logs |
-| `12-policy-evaluation-condition-matches.png` | Policy evaluation showing matching conditions |
-| `13-policy-evaluation-block-grant-control.png` | Policy evaluation showing the Block grant control |
+1. [`01-conditional-access-policy-overview.png`](01-conditional-access-policy-overview.png) — Saved Conditional Access policy overview, including Report-only state and selected configuration.
+2. [`02-policy-user-inclusion.png`](02-policy-user-inclusion.png) — Included pilot test user (Debbie O).
+3. [`03-policy-administrator-exclusion.png`](03-policy-administrator-exclusion.png) — Excluded administrator account.
+4. [`04-device-code-flow-condition.png`](04-device-code-flow-condition.png) — Authentication flows condition with Device code flow selected.
+5. [`11-user-sign-in-logs.png`](11-user-sign-in-logs.png) — Sign-in log evidence for the test user and Microsoft Graph Command Line Tools.
+6. [`12-policy-evaluation-condition-matches.png`](12-policy-evaluation-condition-matches.png) — Conditional Access evaluation showing the relevant user, resource, and authentication-flow conditions matched.
+7. [`13-policy-evaluation-block-grant-control.png`](13-policy-evaluation-block-grant-control.png) — Conditional Access evaluation showing the Block grant control.
+8. [`08-report-only-policy-evaluation.png`](08-report-only-policy-evaluation.png) — Report-only result showing Failure; the policy was evaluated but not enforced.
 
-**Policy outcome:** The policy was configured in **Report-only** mode. A Report-only failure indicates that the policy would have blocked the sign-in if enabled; it does not mean the policy actively blocked the sign-in.
+## Interpretation
 
-Before publishing, review screenshots for temporary device codes, access tokens, session identifiers, and other sensitive information.
+The policy was configured in **Report-only** mode. A `Report-only: Failure` result means the policy would have blocked the sign-in if enforcement were enabled; it does not mean the Report-only policy blocked the actual sign-in.
+
+## Excluded screenshots
+
+Screenshots showing the device approval prompt, a 403 privileges error, unrelated policy details, or redundant authentication information were omitted because they are not required by the Lab 01 evidence checklist.
