@@ -18,5 +18,3 @@ This folder contains the visual evidence for the **Require Terms of Use Acceptan
 ## Upload
 
 All eight PNG screenshots are stored in this folder on the `main` branch.
-
-Before publishing, review screenshots for personal email addresses, tenant identifiers, internal names and other information you do not want public. Never publish passwords, access tokens, temporary device codes or secrets.
