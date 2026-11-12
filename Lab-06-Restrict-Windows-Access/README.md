@@ -43,7 +43,6 @@ The cleaned screenshot set uses eight unique filenames:
 7. `07-conditional-access-policy-block-result.png`
 8. `08-microsoft-error-53003-windows-platform-details.png`
 
-The evidence index is in `screenshots/README.md`. The PNGs should be uploaded with these exact names from the cleaned evidence ZIP.
+The evidence index is in `screenshots/README.md`.
 
-## Cleanup / future work
-For a reusable lab tenant, either leave the policy On as an intentional demonstration or turn it Off after evidence capture. Do not remove the administrator exclusion while the policy is enabled.
+
