@@ -58,11 +58,10 @@ The device-registration/join flow and its corresponding sign-in-log evaluation h
 
 Add the policy configuration screenshots to this folder:
 
-- `screenshots/01-policy-overview.png`
-- `screenshots/02-user-inclusion-and-admin-exclusion.png`
-- `screenshots/03-register-or-join-devices-user-action.png`
-- `screenshots/04-require-mfa-grant-control.png`
-- `screenshots/05-report-only-policy-state.png`
+- `screenshots/01-policy-overview-user-inclusion-and-report-only-state.png`
+- `screenshots/02-register-or-join-devices-user-action.png`
+- `screenshots/03-require-mfa-grant-control.png`
+- `screenshots/04-administrator-exclusion.png`
 
 When the end-to-end test is later completed, add clearly named screenshots of the device registration/join attempt and the matching sign-in log's Conditional Access and authentication details. Do not label configuration screenshots as proof of a completed device-join test.
 
