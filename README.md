@@ -25,7 +25,7 @@ The selected set is **eight labs**, not the original 20. The following exercise 
 | Exercise | Selected project | Status |
 |---|---|---|
 | 06 | [Restrict Access by Operating System](Lab-06-Restrict-Windows-Access/README.md) | Completed — Windows browser block verified in Conditional Access sign-in logs |
-| 07 | [Filter Devices by Ownership](Lab-07-Filter-Devices-by-Ownership/README.md) | In progress |
+| 07 | [Filter Devices by Ownership](Lab-07-Filter-Devices-by-Ownership/README.md) | Completed — non-company/unregistered device browser block verified in Conditional Access sign-in logs |
 | 09 | Authentication Context | Planned |
 | 11 | Conditional Access App Control | Planned — licensing and app support to be checked |
 | 12 | Continuous Access Evaluation (CAE) | Planned |
