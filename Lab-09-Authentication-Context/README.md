@@ -70,7 +70,7 @@ The browser test must use an application that actually requests the authenticati
 
 Use Microsoft's official integration guide and sample as the implementation reference:
 - https://learn.microsoft.com/en-us/entra/identity-platform/developer-guide-conditional-access-authentication-context
-- https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-v2
+- https://github.com/Azure-Samples/ms-identity-javascript-nodejs-tutorial (Node.js/Express OIDC starter)
 
 ## Phase E — One controlled test
 
