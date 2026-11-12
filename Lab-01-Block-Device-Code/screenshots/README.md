@@ -16,7 +16,3 @@ These are the selected screenshots required to document the Lab 01 configuration
 ## Interpretation
 
 The policy was configured in **Report-only** mode. A `Report-only: Failure` result means the policy would have blocked the sign-in if enforcement were enabled; it does not mean the Report-only policy blocked the actual sign-in.
-
-## Excluded screenshots
-
-Screenshots showing the device approval prompt, a 403 privileges error, unrelated policy details, or redundant authentication information were omitted because they are not required by the Lab 01 evidence checklist.
