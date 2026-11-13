@@ -6,25 +6,25 @@ A practical portfolio of Microsoft Entra identity security and access-management
 
 This repository contains **13 selected labs**, numbered consecutively from **01 to 13**. The sequence combines the five foundation labs already started with eight selected advanced Conditional Access exercises.
 
-The original 20-lab workbook used gaps in its exercise numbering. Those original numbers are retained below as source references only. They are **not** the portfolio numbers.
+The selected projects are presented in the order they will be completed. The portfolio numbering runs continuously from 01 to 13.
 
 ## The 13 selected labs
 
-| Portfolio lab | Project | Original workbook exercise | Status |
-|---:|---|---:|---|
-| 01 | [Block Device Code Authentication](Lab-01-Block-Device-Code/README.md) | 01 | Completed — Report-only evaluation verified |
-| 02 | [Protect Azure Management](Lab-02-Protect-Azure-Management/README.md) | 02 | Completed — policy enabled; successful Conditional Access evaluation and MFA grant verified |
-| 03 | [Require Terms of Use Acceptance](Lab-03-Terms-of-Use/README.md) | 03 | Completed — acceptance, sign-in and audit evidence verified |
-| 04 | [Protect Security Information Registration](Lab-04-Secure-Security-Info-Registration/README.md) | 04 | Completed — MFA grant configured, policy On, Authenticator challenge and Conditional Access success documented |
-| 05 | [Protect Device Registration and Join](Lab-05-Protect-Device-Registration/README.md) | 05 | Partially completed — policy configuration documented; end-to-end device-registration test pending VM capability |
-| 06 | [Restrict Access by Operating System](Lab-06-Restrict-Windows-Access/README.md) | 06 | Completed — Windows browser block verified in Conditional Access sign-in logs |
-| 07 | [Filter Devices by Ownership](Lab-07-Filter-Devices-by-Ownership/README.md) | 07 | Completed — non-company/unregistered device browser block verified in Conditional Access sign-in logs |
-| 08 | [Authentication Context with PIM](Lab-08-Authentication-Context/README.md) | 09 | Completed — PIM Reports Reader activation and C1 Conditional Access evaluation verified |
-| 09 | [Conditional Access App Control](Lab-09-Conditional-Access-App-Control/README.md) | 11 | Planned — Defender for Cloud Apps licensing and app support to be checked |
-| 10 | [Continuous Access Evaluation (CAE)](Lab-10-Continuous-Access-Evaluation/README.md) | 12 | Planned — controlled CAE test and evidence capture |
-| 11 | [Workload Identity Conditional Access](Lab-11-Workload-Identity-Conditional-Access/README.md) | 16 | Planned — workload identity licensing and supported conditions to be checked |
-| 12 | [AI Agent Identity Protection](Lab-12-AI-Agent-Identity-Protection/README.md) | 18 | Planned — Agent ID availability, preview status and licensing to be checked |
-| 13 | [Phishing-Resistant Authentication for Privileged Users](Lab-13-Phishing-Resistant-Authentication/README.md) | 19 | Planned |
+| Lab | Project | Status |
+|---:|---|---|
+| 01 | [Block Device Code Authentication](Lab-01-Block-Device-Code/README.md) | Completed — Report-only evaluation verified |
+| 02 | [Protect Azure Management](Lab-02-Protect-Azure-Management/README.md) | Completed — policy enabled; successful Conditional Access evaluation and MFA grant verified |
+| 03 | [Require Terms of Use Acceptance](Lab-03-Terms-of-Use/README.md) | Completed — acceptance, sign-in and audit evidence verified |
+| 04 | [Protect Security Information Registration](Lab-04-Secure-Security-Info-Registration/README.md) | Completed — MFA grant configured, policy On, Authenticator challenge and Conditional Access success documented |
+| 05 | [Protect Device Registration and Join](Lab-05-Protect-Device-Registration/README.md) | Partially completed — policy configuration documented; end-to-end device-registration test pending VM capability |
+| 06 | [Restrict Access by Operating System](Lab-06-Restrict-Windows-Access/README.md) | Completed — Windows browser block verified in Conditional Access sign-in logs |
+| 07 | [Filter Devices by Ownership](Lab-07-Filter-Devices-by-Ownership/README.md) | Completed — non-company/unregistered device browser block verified in Conditional Access sign-in logs |
+| 08 | [Authentication Context with PIM](Lab-08-Authentication-Context/README.md) | Completed — PIM Reports Reader activation and C1 Conditional Access evaluation verified |
+| 09 | [Conditional Access App Control](Lab-09-Conditional-Access-App-Control/README.md) | Planned — Defender for Cloud Apps licensing and app support to be checked |
+| 10 | [Continuous Access Evaluation (CAE)](Lab-10-Continuous-Access-Evaluation/README.md) | Planned — controlled CAE test and evidence capture |
+| 11 | [Workload Identity Conditional Access](Lab-11-Workload-Identity-Conditional-Access/README.md) | Planned — workload identity licensing and supported conditions to be checked |
+| 12 | [AI Agent Identity Protection](Lab-12-AI-Agent-Identity-Protection/README.md) | Planned — Agent ID availability, preview status and licensing to be checked |
+| 13 | [Phishing-Resistant Authentication for Privileged Users](Lab-13-Phishing-Resistant-Authentication/README.md) | Planned |
 
 ## Progress summary
 
