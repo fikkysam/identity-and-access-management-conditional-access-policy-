@@ -1,7 +1,5 @@
 # Lab 10 — Continuous Access Evaluation (CAE)
 
-**Original workbook exercise:** 12 — Continuous Access Evaluation
-
 ## Objective
 
 Observe how a CAE-capable resource and client respond to supported critical events and changes in access conditions during an active user session.
