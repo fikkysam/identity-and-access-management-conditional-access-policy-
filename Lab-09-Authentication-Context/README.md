@@ -1,114 +1,119 @@
-# Lab 09 — Authentication Context
+# Lab 09 — Authentication Context with PIM
 
 ## Objective
 
-Use a Microsoft Entra authentication context to apply stronger Conditional Access requirements to a sensitive operation inside an application, rather than applying the same requirements to every application sign-in.
+Use a Microsoft Entra authentication context and Conditional Access policy to add an MFA requirement to Privileged Identity Management (PIM) activation for an eligible Microsoft Entra role assignment.
 
-This lab uses a small OpenID Connect (OIDC) test application that requests an authentication context for a protected operation. Merely creating a context and a Conditional Access policy does not trigger the policy; the application must request the context.
+This implementation uses PIM directly. A custom Node.js application is **not** part of this lab.
 
-## Prerequisites and important boundaries
+## Environment and identities
 
-- Microsoft Entra ID P1 (or a subscription that includes it) for Conditional Access.
-- A dedicated test identity: Don Paul (`don@fikayo.onmicrosoft.com`).
-- A separate administrator identity excluded from the policy.
-- An OIDC interactive web app registered in the same Entra tenant.
-- Node.js and a code editor for the app integration stage.
-- Do not use a production application or sensitive data for this lab.
+- Tenant: `fikayo`
+- Test user: Debbie O (`debbie@fikayo.onmicrosoft.com`)
+- Administrator: separate administrator account, excluded from the Conditional Access policy
+- Microsoft Entra licensing: Entra ID P2 (as confirmed for this lab tenant)
+- PIM role used: Reports Reader
 
-Authentication context is intended for user-sign-in applications that use OpenID Connect/OAuth 2.0. App-only flows in which the application authenticates as itself are not supported for this feature. See Microsoft's developer guide: https://learn.microsoft.com/en-us/entra/identity-platform/developer-guide-conditional-access-authentication-context
+## Phase A — Create the authentication context
 
-## Important cleanup from previous lab
+Created the following authentication context in **Entra ID → Conditional Access → Authentication contexts**:
 
-Before testing this lab, turn **Off** the Lab 07 policy `Block-NonCompany-Devices`. It targets All resources and can block Don Paul's browser session independently of this authentication-context policy. Keep the policy and its evidence; only disable it for this exercise.
+| Setting | Value |
+|---|---|
+| Name | `Sensitive-Operation` |
+| Description | Require stronger authentication before a user performs a sensitive operation in the lab application. |
+| Publish to apps | Enabled |
+| Context ID | `C1` |
 
-Also confirm Lab 06 `restrict windows Access` remains Off.
+The context was made available for applications and PIM to reference.
 
-## Phase A — Create an authentication context
+## Phase B — Configure the Conditional Access policy
 
-1. Open Microsoft Entra admin center: https://entra.microsoft.com
-2. Go to **Entra ID → Conditional Access → Authentication context** (under Manage).
-3. Select **New authentication context**.
-4. Set the display name to `Sensitive-Operation`.
-5. Set the description to `Require stronger authentication before a user performs a sensitive operation in the lab application.`
-6. Select **Publish to apps** so the application can request this context.
-7. Save the context.
-8. Record the generated context ID (for example, C1, C2, and so on). Do not assume it will be C1; use the actual ID created in this tenant.
+Policy: `Require-MFA-Sensitive-Operation`
 
-## Phase B — Create the Conditional Access policy
+| Setting | Configured value |
+|---|---|
+| Users included | Debbie O (`debbie@fikayo.onmicrosoft.com`) |
+| Users excluded | Administrator account |
+| Target | Authentication context |
+| Selected context | `Sensitive-Operation` (`C1`) |
+| Grant | Grant access |
+| Grant control | Require multifactor authentication |
+| Session control | Sign-in frequency — Every time |
+| Policy state | On |
 
-1. Go to **Entra ID → Conditional Access → Policies → New policy**.
-2. Name it `CA09-Require-MFA-Sensitive-Operation`.
-3. Under **Users → Include**, select Don Paul.
-4. Under **Users → Exclude**, select the administrator account.
-5. Under **Target resources**, choose **Authentication context** (not All resources or a cloud app).
-6. Select the exact context created in Phase A.
-7. Under **Grant**, choose **Grant access → Require multifactor authentication**.
-8. Keep the policy in **Report-only** while reviewing its configuration. Once the test app is ready, enable it for the one controlled end-to-end test. Keep the administrator exclusion.
-9. Save the policy.
+The policy targets the authentication context, not all resources. A sign-in to an unrelated resource can therefore correctly show **Not applied** when that event does not request or match the authentication context.
 
-## Phase C — Register and configure the test application
+## Phase C — Configure PIM for Reports Reader
 
-The browser test must use an application that actually requests the authentication context. Signing in to My Apps or the Entra admin center alone is not a valid authentication-context test.
+In **Privileged Identity Management → Microsoft Entra roles → Reports Reader → Role settings**, the activation settings were configured as follows:
 
-1. In Entra ID, open **App registrations → New registration**.
-2. Name the app `Lab09-Authentication-Context-App`.
-3. Choose the supported account type for this lab tenant (normally accounts in this organizational directory only).
-4. Register the app and record its Application (client) ID and Directory (tenant) ID.
-5. Add a Web redirect URI that matches the local Node.js app callback URL exactly (for example, `http://localhost:3000/auth/callback` for a local-only lab).
-6. Configure the app to use an interactive OIDC authorization-code flow. Use a supported Microsoft identity library such as MSAL Node.
-7. Do not put client secrets, certificates, tokens, or credentials into GitHub. For a local learning app, keep any secret in a local environment file excluded by `.gitignore`; prefer certificate-based credentials for production patterns.
+| Setting | Value |
+|---|---|
+| Maximum activation duration | 8 hours |
+| On activation, require | Microsoft Entra Conditional Access authentication context |
+| Selected context | `Sensitive-Operation` (`C1`) |
+| Require justification | Enabled |
+| Require ticket information | Disabled |
 
-## Phase D — Add the authentication-context request to the app
+Debbie O was assigned **eligible** membership in Reports Reader. Eligible means the role is not permanently active; Debbie must activate it when the role is needed.
 
-1. Implement an ordinary sign-in to the test app using OIDC.
-2. Add a clearly labelled protected operation, such as **View sensitive lab record**. Do not connect it to real sensitive data.
-3. When the user invokes that operation and the required context is not present, have the app request the tenant's recorded authentication-context ID using the OIDC claims request/claims-challenge mechanism described in Microsoft's developer guide.
-4. Send the user through the Microsoft Entra authorization flow with that claims request.
-5. Complete the MFA challenge when prompted.
-6. On return, have the app verify the token's `acrs` claim contains the context ID required by the protected operation before allowing the operation.
-7. If the claim is absent or validation fails, deny the protected operation. Do not rely on a front-end-only check.
+**Scope caution:** PIM role settings apply to the role across the tenant, not only to Debbie's assignment. Review existing assignments before changing settings on a shared role.
 
-Use Microsoft's official integration guide and sample as the implementation reference:
-- https://learn.microsoft.com/en-us/entra/identity-platform/developer-guide-conditional-access-authentication-context
-- https://github.com/Azure-Samples/ms-identity-javascript-nodejs-tutorial (Node.js/Express OIDC starter)
+## Phase D — Activate the eligible role
 
-## Phase E — One controlled test
+Debbie signed in and activated Reports Reader through **PIM → My roles → Microsoft Entra roles**.
 
-1. Ensure Lab 06 and Lab 07 are Off.
-2. Enable `CA09-Require-MFA-Sensitive-Operation` after confirming the target context and admin exclusion.
-3. Open a private browser window and sign in to the Lab 09 test app as Don Paul.
-4. Use an ordinary app page first. Confirm the app sign-in itself does not request the sensitive-operation context.
-5. Invoke **View sensitive lab record**. The app should request the authentication context.
-6. Complete MFA when prompted.
-7. Confirm the app receives a token whose `acrs` claim contains the actual authentication-context ID and then allows the test operation.
-8. In Entra **Monitoring & health → Sign-in logs**, locate the matching event and inspect the **Conditional Access** tab. Confirm the named policy and its result.
-9. Capture the app result, authentication details, token claim evidence (redact tokens; capture only the relevant claim safely), and Conditional Access evaluation.
+The activation request used an 8-hour duration and a justification describing the need to review Entra sign-in and audit logs for this lab.
 
-## Expected behavior
+Observed evidence:
+- The PIM **My roles → Active assignments** view showed Reports Reader as Activated.
+- PIM **Resource audit** showed `Add member to role completed (PIM activation)` for Debbie O and Reports Reader, with successful status.
+- The activation notification email confirmed Debbie activated Reports Reader. The email showed the 8-hour start and end time.
 
-- Normal app sign-in: no authentication-context step-up is requested by the app.
-- Sensitive operation: application requests the selected authentication context.
-- Conditional Access policy: requires MFA for that context and test user.
-- After successful challenge: app validates the returned `acrs` claim and allows the protected test operation.
+## Phase E — Verify Conditional Access evaluation
 
-These are expected results; record the actual results from the tenant and app rather than assuming success.
+The matching Conditional Access policy details showed:
 
-## Evidence checklist
+| Evaluation field | Observed result |
+|---|---|
+| Policy | `Require-MFA-Sensitive-Operation` |
+| Policy state | Enabled |
+| Overall policy result | Success |
+| User | Debbie O — Matched |
+| Authentication contexts | Matched |
+| Grant controls | Satisfied |
+| Specific grant control | Require multifactor authentication |
+| Session controls | Enforced |
 
-- Authentication context created and **Publish to apps** enabled.
-- Actual context ID recorded.
-- Conditional Access policy targets that exact context.
-- Don Paul included and administrator excluded.
-- MFA grant control and policy state.
-- App registration and redirect URI (no credentials or secrets).
-- Protected operation requests the context.
-- Token validation shows the required `acrs` value (never publish the full token).
-- Matching sign-in log Conditional Access evaluation.
+The sign-in event therefore demonstrates that the user and authentication context matched the policy, and the MFA grant requirement was satisfied. The session control was also enforced.
 
-## Licensing and alternative integrations
+### Prompt behavior and evidence limitation
 
-Conditional Access requires Microsoft Entra ID P1. SharePoint can also consume authentication contexts, but applying contexts to SharePoint sites or sensitivity-labelled sites can require additional SharePoint Advanced Management and/or Microsoft 365 E5 compliance licensing. This lab therefore uses a custom OIDC user-sign-in app to avoid assuming those additional licenses.
+Debbie did **not** observe a separate, new interactive MFA prompt during the activation attempt. The sign-in log nevertheless records the matching authentication context, a successful policy result, the MFA grant as **Satisfied**, and session controls as **Enforced**.
 
-## Cleanup
+Do not describe this evidence as proof that a fresh MFA challenge was visibly displayed. It proves the Conditional Access evaluation and satisfaction of the configured grant control for the captured sign-in event. Microsoft Entra can satisfy an MFA requirement using an authentication state already present in the session, so a new prompt is not guaranteed for every event.
 
-After evidence capture, decide whether to leave the policy On for the lab or turn it Off. Keep the app and context only in the non-production tenant. Remove any temporary credentials from local files and ensure those files are ignored by Git.
+## Outcome
+
+**Completed — PIM activation and authentication-context Conditional Access evaluation verified.**
+
+Evidence supports all of the following:
+1. Authentication context `Sensitive-Operation` (`C1`) was created and published.
+2. The Conditional Access policy was enabled, targeted C1, included Debbie, excluded the administrator, and required MFA.
+3. PIM Reports Reader activation settings required C1, with an 8-hour maximum and justification.
+4. Debbie held an eligible Reports Reader assignment and successfully activated the role.
+5. A sign-in event showed Debbie and the authentication context matched, the policy result was Success, the MFA grant control was Satisfied, and session controls were Enforced.
+
+## Evidence
+
+See `screenshots/README.md` for the numbered evidence index. Screenshots document the context, Conditional Access policy, PIM role settings and assignment, successful activation and audit history, sign-in frequency configuration, and the policy-specific sign-in evaluation.
+
+Never publish passwords, temporary codes, authentication tokens, client secrets, certificates, private keys, or recovery codes.
+
+## Cleanup and operational notes
+
+- Keep the administrator excluded from the Conditional Access policy.
+- Leave the policy On only if this behavior is intended for the test user and context. Otherwise turn it Off after the lab evidence is captured.
+- Decide whether to leave Debbie's Reports Reader assignment eligible after testing. Remove or expire unnecessary assignments.
+- Keep the lab tenant non-production.
