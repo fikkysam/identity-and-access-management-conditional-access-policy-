@@ -15,9 +15,3 @@
 
 ## Evidence interpretation
 The sign-in event shows the authentication context matched, the policy result was Success, the MFA grant control was Satisfied, and session controls were Enforced.
-
-Debbie did not observe a separate fresh interactive MFA prompt during activation. Do not caption this evidence as a visible MFA challenge. The logs prove policy evaluation and satisfaction of the MFA grant requirement for the captured event, not that a new prompt was visibly displayed.
-
-A separate sign-in that did not match the authentication context can correctly show Not applied; do not use that unrelated event as the success evidence.
-
-Do not upload passwords, access tokens, client secrets, certificates, private keys, recovery codes, or full token contents.
