@@ -1,7 +1,5 @@
 # Lab 08 — Screenshot Evidence
 
-**Original workbook exercise:** 09 — Authentication Context
-
 | File | Evidence |
 |---|---|
 | `01-authentication-context-created-c1.png` | Authentication context Sensitive-Operation created and published, ID C1 |
