@@ -1,7 +1,5 @@
 # Lab 09 — Conditional Access App Control
 
-**Original workbook exercise:** 11 — Conditional Access App Control
-
 ## Objective
 
 Route supported cloud-app sessions through Microsoft Defender for Cloud Apps for session monitoring or control.
