@@ -1,7 +1,5 @@
 # Lab 12 — AI Agent Identity Protection
 
-**Original workbook exercise:** 18 — AI Agent Identity Protection
-
 ## Objective
 
 Build an identity-security scenario for an AI agent, distinguishing an agent identity, an agent user account, delegated user access, and conventional application/service principal patterns.
