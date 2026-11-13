@@ -1,7 +1,5 @@
 # Lab 13 — Phishing-Resistant Authentication for Privileged Users
 
-**Original workbook exercise:** 19 — Phishing-resistant authentication for privileged users
-
 ## Objective
 
 Require a phishing-resistant authentication method for a narrowly scoped privileged test identity.
