@@ -1,7 +1,5 @@
 # Lab 11 — Workload Identity Conditional Access
 
-**Original workbook exercise:** 16 — Workload identity Conditional Access
-
 ## Objective
 
 Protect service principals/workload identities using workload identity Conditional Access rather than user-based Conditional Access policies.
