@@ -1,7 +1,5 @@
 # Lab 08 — Authentication Context with PIM
 
-**Original workbook exercise:** 09 — Authentication Context
-
 ## Objective
 
 Use a Microsoft Entra authentication context and Conditional Access policy to add an MFA requirement to Privileged Identity Management (PIM) activation for an eligible Microsoft Entra role assignment.
