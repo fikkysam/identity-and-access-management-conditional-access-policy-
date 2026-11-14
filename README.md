@@ -20,7 +20,7 @@ The selected projects are presented in the order they will be completed. The por
 | 06 | [Restrict Access by Operating System](Lab-06-Restrict-Windows-Access/README.md) | Completed — Windows browser block verified in Conditional Access sign-in logs |
 | 07 | [Filter Devices by Ownership](Lab-07-Filter-Devices-by-Ownership/README.md) | Completed — non-company/unregistered device browser block verified in Conditional Access sign-in logs |
 | 08 | [Authentication Context with PIM](Lab-08-Authentication-Context/README.md) | Completed — PIM Reports Reader activation and C1 Conditional Access evaluation verified |
-| 09 | [Conditional Access App Control](Lab-09-Conditional-Access-App-Control/README.md) | Planned — Defender for Cloud Apps licensing and app support to be checked |
+| 09 | [Conditional Access App Control](Lab-09-Conditional-Access-App-Control/README.md) | Completed — SharePoint download block verified in Defender session-control activity and matched-policy details |
 | 10 | [Continuous Access Evaluation (CAE)](Lab-10-Continuous-Access-Evaluation/README.md) | Planned — controlled CAE test and evidence capture |
 | 11 | [Workload Identity Conditional Access](Lab-11-Workload-Identity-Conditional-Access/README.md) | Planned — workload identity licensing and supported conditions to be checked |
 | 12 | [AI Agent Identity Protection](Lab-12-AI-Agent-Identity-Protection/README.md) | Planned — Agent ID availability, preview status and licensing to be checked |
@@ -28,9 +28,9 @@ The selected projects are presented in the order they will be completed. The por
 
 ## Progress summary
 
-- **Completed:** Labs 01, 02, 03, 04, 06, 07 and 08.
+- **Completed:** Labs 01, 02, 03, 04, 06, 07, 08 and 09.
 - **Partially completed:** Lab 05. Its Conditional Access policy configuration is documented, but the end-to-end device-registration test and matching sign-in evaluation remain pending.
-- **Planned:** Labs 09, 10, 11, 12 and 13.
+- **Planned:** Labs 10, 11, 12 and 13.
 
 A lab is not complete until its relevant test and evidence have been captured. Policy creation alone is not sufficient.
 
