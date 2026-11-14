@@ -30,7 +30,7 @@ Use Microsoft Entra Conditional Access and Microsoft Defender for Cloud Apps (De
 | Session control | Use Conditional Access App Control |
 | App-control mode | **Block downloads (Preview)** |
 
-The resource scope is **Office 365**, not only SharePoint Online. The policy was limited to the dedicated test user and browser client. Because Office 365 is a broad resource selection, review the scope carefully before adapting this configuration for a production user.
+The resource scope is **Office 365**, not only SharePoint Online. The policy was limited to the dedicated test user and browser client. Because Office 365 is a broad resource selection.
 
 ## Implementation and test procedure
 
