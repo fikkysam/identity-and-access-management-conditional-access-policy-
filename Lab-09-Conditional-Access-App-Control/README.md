@@ -74,7 +74,7 @@ Opening **Matched policies** displayed **Microsoft Defender App Control** with t
 
 ## Validation outcome
 
-<badge>Completed</badge>
+**Completed — enforcement and policy attribution verified.**
 
 The lab's primary control objective was verified end to end:
 
