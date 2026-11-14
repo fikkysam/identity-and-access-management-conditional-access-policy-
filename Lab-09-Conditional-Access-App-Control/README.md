@@ -14,7 +14,7 @@ Use Microsoft Entra Conditional Access and Microsoft Defender for Cloud Apps (De
 - A dedicated test identity was used; the administrator identity was excluded from the Conditional Access policy.
 - Testing used a harmless text file in a non-production SharePoint document library.
 
-> **Licensing note:** Entra ID P2 by itself does not provide every Defender for Cloud Apps session-control capability. Confirm the applicable Defender for Cloud Apps entitlement, service availability, and app support before reproducing this lab in another tenant.
+
 
 ## Conditional Access configuration
 
@@ -91,16 +91,7 @@ The blocked-download screen, Activity log event, and Matched policies dialog pro
 - The initial Defender access notification used the wording **monitor mode**. That notification alone was not treated as proof of the final download-control result. The actual download attempt was blocked, and the corresponding Activity log event showed **Source: Session control** and the matched Entra policy.
 - The Activity log's suggested-query menu and its filter menu are different controls. The download event was located through the query interface and then expanded to inspect its details.
 - If a similar test does not block downloads, verify the policy state, included/excluded identities, target resource, Browser client condition, selected session control, licensing, and supported-app routing.
-
-## Security and cleanup considerations
-
-- Keep the policy scoped to a dedicated test identity until production impact is understood.
-- Maintain administrator and emergency-access exclusions.
-- Use non-sensitive test data.
-- Review the broad **Office 365** resource scope before extending the policy to additional users.
-- Remove the test file from the SharePoint Documents library when it is no longer needed.
-- Review trial subscription settings separately; do not assume that a trial automatically stops billing.
-
+- 
 ## Evidence
 
 The lab was validated using the following portal evidence captured during the test:
