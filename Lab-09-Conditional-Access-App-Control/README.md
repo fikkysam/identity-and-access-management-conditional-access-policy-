@@ -54,7 +54,7 @@ The resource scope is **Office 365**, not only SharePoint Online. The policy was
 - SharePoint access was routed through the Defender for Cloud Apps proxy. The browser URL used the tenant's `access.mcas.ms` proxy host.
 - The test file `iam-lab.txt` was saved successfully in the SharePoint Documents library.
 - When the test user selected Download, Defender displayed **Download blocked** and stated that downloading `iam-lab.txt` was blocked by the organisation's security policy.
-- Edge showed a generated `Blocked_...`.txt response instead of delivering the original test file.
+- Edge showed a generated `Blocked_...txt` response instead of delivering the original test file.
 
 ### Defender Activity log
 
