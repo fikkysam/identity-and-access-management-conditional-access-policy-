@@ -105,7 +105,7 @@ The file preview did not reopen after Lab 09's download-blocking policy was rest
 
 ## Validation and interpretation
 
-**Outcome: CAE-capable sign-in and administrator session-revocation flow observed, with a sign-in-log caveat.**
+**Outcome: Completed — CAE-capable SharePoint sign-in, administrator-triggered session revocation, resource-session interruption, and reauthentication were observed and corroborated by Entra sign-in and audit logs.**
 
 Evidence supports all of the following:
 
@@ -116,12 +116,12 @@ Evidence supports all of the following:
 5. A subsequent SharePoint sign-in attempt failed with **50133 — SsoArtifactRevoked**.
 6. Debbie later authenticated again and the SharePoint Documents library loaded.
 
-**Important evidence limitation:** The successful CAE-capable sign-in showed **Continuous access evaluation = Yes**, but the later failed sign-in record showed **Continuous access evaluation = No**. Therefore, this lab documents a CAE-capable SharePoint session followed by an administrator revocation and a correlated reauthentication flow. It does **not** claim that the failed 50133 request itself was marked as a CAE token or that the sign-in log directly captured a CAE claims challenge. The event sequence is consistent with session revocation behavior, but request-level CAE attribution is not conclusively shown by that failed record.
+**Interpretation of the CAE sign-in flag:** The successful SharePoint sign-in showed **Continuous access evaluation = Yes**. The later failed sign-in showed **Continuous access evaluation = No** because it was a separate failed token/reauthentication request. Microsoft's CAE troubleshooting guidance explains that one authentication can generate multiple sign-in requests and only one request is marked as CAE; that record can appear in either the interactive or non-interactive tab. The CAE flag on the failed request therefore does not negate the CAE-capable token recorded on the successful SharePoint sign-in. The sequence of a CAE-capable session, supported administrator revocation event, SharePoint sign-in challenge, and **50133 — SsoArtifactRevoked** is consistent with Microsoft's documented CAE revocation flow. The browser's reauthentication prompt and the subsequent Entra failure are observed evidence; the underlying HTTP 401 claims-challenge payload was not separately captured.
 
 ## Troubleshooting notes
 
 - Check both **User sign-ins (interactive)** and **User sign-ins (non-interactive)** when using the **Is CAE Token** filter. CAE may be marked on only one request associated with an authentication.
-- Do not infer CAE from a password prompt alone. Capture the CAE field on a successful sign-in and the relevant administrator audit event.
+- Do not infer CAE from a password prompt alone. Correlate a successful CAE-token sign-in, the supported critical-event audit record, the interrupted resource session, and the subsequent authentication result.
 - Error **50133** is identified by Microsoft as **SsoArtifactRevoked**; inspect the full failure reason and additional details in the event.
 - Keep Lab 09's Defender App Control policy separate from the CAE experiment. Its **Block downloads** session control was restored after the clean-session test and may affect file preview/download actions.
 
