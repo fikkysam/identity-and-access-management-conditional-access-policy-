@@ -39,7 +39,6 @@ The following are portfolio roadmap items or broader learning interests, not com
 
 | Technology / capability | Portfolio status |
 |---|---|
-| Microsoft Entra Workload ID Conditional Access | Planned — Lab 11 |
 | AI Agent identity protection / Agent ID | Planned — Lab 12 |
 | Phishing-resistant authentication for privileged users | Planned — Lab 13 |
 | End-to-end device registration and join validation | Partially completed — Lab 05 |
