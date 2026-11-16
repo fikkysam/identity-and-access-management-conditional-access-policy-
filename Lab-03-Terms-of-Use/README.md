@@ -56,8 +56,4 @@ This supports that the agreement was accepted and the Terms of Use control succe
 
 See [screenshots/README.md](screenshots/README.md) for the evidence index. Screenshots should be uploaded to this folder before the repository is considered to contain the complete visual evidence set.
 
-## Notes and limitations
 
-- The evidence confirms the observed acceptance and successful policy evaluation; it does not independently establish the legal validity of the agreement.
-- The policy is enabled in the captured configuration. Keep this type of enforcement limited to the intended test scope in a non-production tenant.
-- Do not publish real legal agreements or sensitive organizational terms without authorization.
