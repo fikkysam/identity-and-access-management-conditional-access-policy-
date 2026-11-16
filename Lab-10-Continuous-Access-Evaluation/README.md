@@ -17,3 +17,9 @@ This pack contains nine portal screenshots from the controlled SharePoint sessio
 The successful SharePoint sign-in was CAE-marked. The administrator session-revocation operation was successful and targeted Debbie. The subsequent SharePoint sign-in failed with 50133 and Entra's additional details describe revoked sessions and a request for new login. However, the failed event itself displayed Continuous access evaluation = No. Therefore, the screenshots support a CAE-capable sign-in followed by an administrator session-revocation/reauthentication flow, but do not independently prove that the failed request itself was processed as a CAE token or that a CAE claims challenge was directly logged.
 
 The Lab 09 Defender App Control policy was confirmed On after the clean-session test.
+
+## Documentation
+
+- [Configuration](configuration.md) — prerequisites, policy settings, and implementation details.
+- [Test results](test-results.md) — test procedure, observed outcomes, evidence interpretation, and limitations.
+- [Screenshot evidence index](screenshots/README.md) — numbered evidence and descriptions.
