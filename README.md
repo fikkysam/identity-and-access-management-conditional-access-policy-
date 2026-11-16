@@ -23,6 +23,8 @@ See the [portfolio architecture diagram](architecture.md) for a logical view of 
 
 > The diagram consolidates separate lab exercises; it does not imply that every control was deployed as one integrated production environment.
 
+See the [IAM skills and tools matrix](skills-matrix.md) for a recruiter-friendly map of demonstrated capabilities, platforms, and the labs that provide supporting evidence. Planned or unverified technologies are clearly separated.
+
 ## Lab catalogue
 
 | Lab | Project | Status |
