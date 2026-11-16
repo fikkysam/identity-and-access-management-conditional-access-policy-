@@ -76,3 +76,9 @@ See the `screenshots/` folder and its evidence index. Evidence includes:
 This policy applies to the selected test user, Browser client, and all targeted resources when the device filter matches. The administrator account remains excluded.
 
 Leave the policy On only if you intend to continue blocking Don Paul's browser access from devices not identified as company-owned. Otherwise, switch it Off after capturing evidence. Do not remove the administrator exclusion while the policy is enabled.
+
+## Documentation
+
+- [Configuration](configuration.md) — prerequisites, policy settings, and implementation details.
+- [Test results](test-results.md) — test procedure, observed outcomes, evidence interpretation, and limitations.
+- [Screenshot evidence index](screenshots/README.md) — numbered evidence and descriptions.
