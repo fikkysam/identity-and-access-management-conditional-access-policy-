@@ -17,6 +17,12 @@ This repository documents practical work performed in a non-production Microsoft
 
 The portfolio is organized as a progressive sequence, from foundational Conditional Access controls to advanced identity-security scenarios.
 
+## Architecture overview
+
+See the [portfolio architecture diagram](architecture.md) for a logical view of how the completed lab scenarios relate across Microsoft Entra ID, Conditional Access, protected cloud resources, PIM, Defender for Cloud Apps, and session lifecycle controls.
+
+> The diagram consolidates separate lab exercises; it does not imply that every control was deployed as one integrated production environment.
+
 ## Lab catalogue
 
 | Lab | Project | Status |
