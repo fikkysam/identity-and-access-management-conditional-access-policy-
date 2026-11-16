@@ -2,7 +2,7 @@
 
 ## Test scope
 
-This lab verifies that Debbie O can activate an eligible Reports Reader role using the configured authentication context, and that the matching sign-in event records the Conditional Access evaluation.
+This lab verifies that Debbie O can activate an eligible Reports Reader role using the configured authentication context, receives the MFA challenge during activation, and that the matching sign-in event records the Conditional Access evaluation.
 
 ## Phase D — Activate the eligible role
 
@@ -12,6 +12,7 @@ Debbie activated Reports Reader through **PIM → My roles → Microsoft Entra r
 
 | Validation item | Observed result |
 |---|---|
+| MFA challenge | Debbie received a new MFA prompt during the activation attempt |
 | PIM My roles → Active assignments | Reports Reader shown as Activated |
 | PIM Resource audit | `Add member to role completed (PIM activation)` recorded for Debbie O and Reports Reader |
 | Audit status | Successful |
@@ -34,13 +35,11 @@ The matching Conditional Access policy details showed:
 
 The captured sign-in event demonstrates that Debbie and the authentication context matched the policy, and that the MFA grant requirement was satisfied.
 
-## Prompt behavior and evidence limitation
+## MFA prompt and sign-in evidence
 
-Debbie did **not** observe a separate, new interactive MFA prompt during the activation attempt.
+Debbie received a new MFA prompt during the activation attempt. This is the observed user-facing authentication behavior for this test.
 
-The sign-in log nevertheless records the matching authentication context, a successful policy result, the MFA grant as **Satisfied**, and session controls as **Enforced**.
-
-Do not describe this evidence as proof that a fresh MFA challenge was visibly displayed. It proves the Conditional Access evaluation and satisfaction of the configured grant control for the captured sign-in event. Microsoft Entra can satisfy an MFA requirement using an authentication state already present in the session, so a new prompt is not guaranteed for every event.
+The sign-in log independently records the matching authentication context, a successful policy result, the MFA grant as **Satisfied**, and session controls as **Enforced**. Together, the observed prompt and the sign-in evaluation support the conclusion that the authentication-context policy required MFA for Debbie's activation flow.
 
 ## Evidence index
 
@@ -56,13 +55,13 @@ The evidence index includes:
 
 ## Result
 
-**Completed — PIM activation and authentication-context Conditional Access evaluation verified.**
+**Completed — PIM activation, the new MFA prompt, and authentication-context Conditional Access evaluation verified.**
 
 Evidence supports:
 1. Authentication context `Sensitive-Operation` (`C1`) was created and published.
 2. The Conditional Access policy was enabled, targeted C1, included Debbie, excluded the administrator, and required MFA.
 3. PIM Reports Reader activation settings required C1, with an 8-hour maximum and justification.
-4. Debbie held an eligible Reports Reader assignment and successfully activated the role.
+4. Debbie held an eligible Reports Reader assignment, received a new MFA prompt during activation, and successfully activated the role.
 5. A sign-in event showed Debbie and the authentication context matched, the policy result was Success, the MFA grant control was Satisfied, and session controls were Enforced.
 
 ## Cleanup and safety
