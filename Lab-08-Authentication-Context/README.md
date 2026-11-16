@@ -20,7 +20,8 @@ This implementation uses PIM directly. A custom Node.js application is **not** p
 2. Enabled the `Require-MFA-Sensitive-Operation` Conditional Access policy for Debbie, excluding the administrator, targeting context C1, and requiring MFA.
 3. Configured Reports Reader PIM activation to require context C1, with an 8-hour maximum activation duration and justification.
 4. Assigned Debbie eligible Reports Reader membership and verified a successful activation.
-5. Reviewed the matching sign-in event and confirmed the authentication context matched, the policy result was Success, the MFA grant was Satisfied, and session controls were Enforced.
+5. Debbie received a new MFA prompt during the activation attempt.
+6. Reviewed the matching sign-in event and confirmed the authentication context matched, the policy result was Success, the MFA grant was Satisfied, and session controls were Enforced.
 
 ## Documentation
 
@@ -32,11 +33,11 @@ This implementation uses PIM directly. A custom Node.js application is **not** p
 
 ## Result
 
-**Completed — PIM activation and authentication-context Conditional Access evaluation verified.**
+**Completed — PIM activation, the new MFA prompt, and authentication-context Conditional Access evaluation verified.**
 
-### Important evidence limitation
+### MFA observation
 
-Debbie did not observe a separate, new interactive MFA prompt during the activation attempt. The captured sign-in event proves that the MFA grant requirement was satisfied during Conditional Access evaluation; it does not prove that a fresh interactive challenge was visibly displayed. See [test-results.md](test-results.md) for the full explanation.
+Debbie received a new MFA prompt during the activation attempt. The matching sign-in event also records the authentication context match, a successful Conditional Access policy result, the MFA grant as **Satisfied**, and session controls as **Enforced**. The prompt observation and the sign-in-log evaluation are complementary evidence.
 
 ## Safety and operational notes
 
