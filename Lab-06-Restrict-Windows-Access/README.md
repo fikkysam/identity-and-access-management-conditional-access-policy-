@@ -45,4 +45,8 @@ The cleaned screenshot set uses eight unique filenames:
 
 The evidence index is in `screenshots/README.md`.
 
+## Documentation
 
+- [Configuration](configuration.md) — prerequisites, policy settings, and implementation details.
+- [Test results](test-results.md) — test procedure, observed outcomes, evidence interpretation, and limitations.
+- [Screenshot evidence index](screenshots/README.md) — numbered evidence and descriptions.
