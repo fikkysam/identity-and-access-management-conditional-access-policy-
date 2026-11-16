@@ -19,3 +19,9 @@ This archive contains nine screenshots, in the order of the lab walkthrough.
 The strongest proof of enforcement is the combination of screenshots 7, 8, and 9: the browser block, the Defender session-control activity, and the matched Entra policy. Screenshot 2 documents proxy routing but should not be used alone to claim that downloads were blocked.
 
 The activity-detail screenshot is cropped to avoid exposing the user's full identifier and IP details. The archive is intended for the Lab 09 portfolio evidence folder.
+
+## Documentation
+
+- [Configuration](configuration.md) — prerequisites, policy settings, and implementation details.
+- [Test results](test-results.md) — test procedure, observed outcomes, evidence interpretation, and limitations.
+- [Screenshot evidence index](screenshots/README.md) — numbered evidence and descriptions.
