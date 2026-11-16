@@ -10,10 +10,10 @@ This repository documents practical work performed in a non-production Microsoft
 
 | Measure | Current status |
 |---|---:|
-| Selected labs | 13 |
+| Selected labs | 12 |
 | Completed | 9 |
 | Partially completed | 1 |
-| Planned | 3 |
+| Planned | 2 |
 
 The portfolio is organized as a progressive sequence, from foundational Conditional Access controls to advanced identity-security scenarios.
 
@@ -39,7 +39,6 @@ See the [IAM skills and tools matrix](skills-matrix.md) for a recruiter-friendly
 | 08 | [Authentication Context with PIM](Lab-08-Authentication-Context/README.md) | **Completed** — PIM Reports Reader activation and C1 Conditional Access evaluation verified |
 | 09 | [Conditional Access App Control](Lab-09-Conditional-Access-App-Control/README.md) | **Completed** — SharePoint download block verified in Defender session-control activity and matched-policy details |
 | 10 | [Continuous Access Evaluation (CAE)](Lab-10-Continuous-Access-Evaluation/README.md) | **Completed** — CAE-capable SharePoint sign-in, administrator session revocation, reauthentication, and audit evidence verified |
-| 11 | [Workload Identity Conditional Access](Lab-11-Workload-Identity-Conditional-Access/README.md) | **Planned** — workload identity licensing and supported conditions to be checked |
 | 12 | [AI Agent Identity Protection](Lab-12-AI-Agent-Identity-Protection/README.md) | **Planned** — Agent ID availability, preview status, and licensing to be checked |
 | 13 | [Phishing-Resistant Authentication for Privileged Users](Lab-13-Phishing-Resistant-Authentication/README.md) | **Planned** |
 
@@ -63,7 +62,7 @@ The completed labs provide practical evidence across these areas:
 - **Session lifecycle security:** Continuous Access Evaluation concepts, administrator session revocation, and reauthentication analysis.
 - **Identity troubleshooting and evidence:** sign-in logs, policy evaluation details, audit evidence, application behavior, and documented test limitations.
 
-The planned labs extend the portfolio into workload identities, AI agent identity protection, and phishing-resistant authentication for privileged users. These are future objectives, not claims of completed implementation.
+The planned labs extend the portfolio into AI agent identity protection and phishing-resistant authentication for privileged users. These are future objectives, not claims of completed implementation.
 
 ## How each lab is documented
 
@@ -106,7 +105,7 @@ The next development priorities are:
 
 1. Complete the end-to-end validation for Lab 05 when the required VM/device capability is available.
 2. Continue standardizing documentation and screenshot indexes across the existing labs.
-3. Implement and validate the planned advanced identity-security labs (11–13), subject to licensing and feature availability.
+3. Implement and validate the planned advanced identity-security labs (12–13), subject to licensing and feature availability.
 
 ## Learning objective
 
