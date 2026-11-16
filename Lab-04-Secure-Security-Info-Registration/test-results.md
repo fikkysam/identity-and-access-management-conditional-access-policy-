@@ -1,53 +1,50 @@
 # Lab 04 — Test Results
 
-## Current test status
+## Test objective
 
-**Not yet tested — policy configuration is incomplete.**
+Validate that the Conditional Access policy protecting the **Register security information** user action is configured to require MFA, and review the captured authentication and sign-in evidence.
 
-The available screenshots document the policy creation and assignment scope, but do not show a configured Grant control or a completed policy.
+## Observed results
 
-## Configuration evidence
-
-| Item | Observed result |
+| Test / evidence | Observed result |
 |---|---|
-| Policy name | Require MFA for Security Info Registration |
-| Included user | don paul |
-| Excluded administrator | Oluwafikayo Oyedokun |
+| Policy enabled | Confirmed |
+| Test-user inclusion | Confirmed |
+| Administrator exclusion | Confirmed |
 | Target user action | Register security information |
-| Grant control | 0 controls selected |
-| Policy state | Report-only on the creation screen |
+| Grant control | Require multifactor authentication |
+| Authenticator challenge | Microsoft Authenticator number-matching prompt captured |
+| Security information registration | Microsoft Authenticator shown as a registered method |
+| Conditional Access evaluation | Named policy shown with MFA grant control and Success |
+| Sign-in events view | Successful sign-in and Conditional Access status captured |
 
-## Required validation procedure
+## Evidence interpretation
 
-After configuring the Grant control and creating the policy:
+The screenshot set contains a visible Microsoft Authenticator number-matching challenge, a security information page showing Microsoft Authenticator as a registered method, and a Conditional Access evaluation showing the named policy, MFA grant control, and **Success**.
 
-1. Sign in as the dedicated test identity.
-2. Open the security information registration experience.
-3. Perform the registration action in a controlled test.
-4. Locate the corresponding event in **Microsoft Entra admin center → Monitoring & health → Sign-in logs**.
-5. Inspect the **Conditional Access** and, where available, **Report-only** evaluation details.
-6. Confirm that the policy, user-action target and MFA/authentication-strength requirement are evaluated as expected.
-7. Capture the event and record the actual result.
+These items support completion of the policy configuration and the authentication/registration validation exercise.
 
-## Expected result
+**Correlation limitation:** The sign-in summary screenshot does not, by itself, prove every detail of the authentication sequence for the exact security-information registration transaction. To make that narrower claim, inspect the individual sign-in event's authentication details and correlate its timestamp, user, and activity with the registration attempt. Do not infer that correlation solely from a general successful sign-in summary.
 
-The policy should evaluate for the Register security information user action and indicate whether the MFA/authentication-strength grant requirement would be satisfied or would require user action.
+## Evidence index
 
-Do not mark the test as passed based only on the policy creation screen. Report-only evaluates policy impact and does not enforce the grant control.
+See [screenshots/README.md](screenshots/README.md) for the ten numbered screenshots and their descriptions.
 
 ## Completion checklist
 
 - [x] Dedicated test user included.
 - [x] Administrator account excluded.
 - [x] Register security information user action selected.
-- [ ] Grant access configured.
-- [ ] MFA or appropriate authentication strength selected.
-- [ ] Policy created in Report-only.
-- [ ] Test-user registration attempt completed.
-- [ ] Matching sign-in event reviewed.
-- [ ] Conditional Access evaluation captured.
-- [ ] Final evidence screenshots uploaded.
+- [x] Grant access configured.
+- [x] Require multifactor authentication selected.
+- [x] Policy enabled.
+- [x] Microsoft Authenticator number-matching prompt captured.
+- [x] Microsoft Authenticator registration shown.
+- [x] Successful Conditional Access evaluation captured.
+- [x] Sign-in events and Conditional Access status evidence captured.
 
 ## Result
 
-**Lab 04 remains in progress.** No successful policy evaluation or registration test is claimed at this stage.
+**Lab 04 completed — policy configuration and supporting authentication/registration evidence captured.**
+
+The evidence supports the enabled MFA policy, the intended user-action target, the Authenticator number-matching challenge, registration of the Authenticator method, and a successful Conditional Access evaluation. The event-to-transaction correlation limitation above is retained for technical accuracy.
