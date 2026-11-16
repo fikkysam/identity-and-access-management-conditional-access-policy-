@@ -46,7 +46,7 @@ See the [IAM skills and tools matrix](skills-matrix.md) for a recruiter-friendly
 
 - **Completed:** Labs 01, 02, 03, 04, 06, 07, 08, 09, and 10.
 - **Partially completed:** Lab 05. The policy configuration is documented, but the end-to-end device-registration test and matching sign-in evaluation remain pending.
-- **Planned:** Labs 11, 12, and 13.
+- **Planned:** Labs 12 and 13.
 
 A lab is not marked complete solely because a policy was created. Its status reflects the test and evidence currently documented in the repository.
 
