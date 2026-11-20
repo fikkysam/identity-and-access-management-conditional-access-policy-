@@ -32,24 +32,3 @@ This matrix maps the technical capabilities demonstrated in this repository to t
 | Microsoft Defender for Cloud Apps | Inspect session-control activity and matched-policy details for a SharePoint download restriction | Lab 09 |
 | SharePoint Online | Provide the test site, Documents library, browser session, and test file for session-control and CAE exercises | Labs 09 and 10 |
 | Azure Resource Manager | Serve as the target resource for the Azure management Conditional Access exercise | Lab 02 |
-
-## Capabilities not yet evidenced as completed
-
-The following are portfolio roadmap items or broader learning interests, not completed skills demonstrated by the current lab evidence:
-
-| Technology / capability | Portfolio status |
-|---|---|
-| Phishing-resistant authentication for privileged users | Completed controlled test — Lab 11; see documented evidence limitations |
-| End-to-end device registration and join validation | Partially completed — Lab 05 |
-| Intune device compliance integration | Not demonstrated by the completed lab evidence reviewed for this matrix |
-| CyberArk, SailPoint, Saviynt, and ServiceNow integrations | Not demonstrated by this repository's completed lab evidence |
-
-## How to interpret this matrix
-
-- **Demonstrated** means the linked lab records a configuration, test, or observed outcome relevant to the capability. It does not imply production deployment or enterprise-scale operational experience.
-- A Report-only result is an evaluation, not an enforced block. Lab 01 is explicitly documented as Report-only.
-- Lab 05 remains partially completed because the end-to-end device-registration test is pending.
-- Lab 10 documents a CAE-capable successful sign-in and a session-revocation/reauthentication flow. It does not claim that the subsequent failed event itself was processed as a CAE token.
-- Planned technologies should be moved into the demonstrated section only after configuration and validation evidence has been added.
-
-For exact settings and test outcomes, follow the individual lab links in the portfolio README.
