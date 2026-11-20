@@ -95,7 +95,7 @@ Each lab uses a controlled workflow:
 - Prefer Report-only evaluation before enforcement where supported.
 - Clearly distinguish a Report-only result from an enforced access block.
 - Verify the relevant sign-in, audit, or application evidence before claiming a control worked.
-- Check licensing and prerequisites for features that depend on services such as Intune, Defender for Cloud Apps, Microsoft Entra Workload ID, Identity Governance, or Agent ID.
+- Check licensing and prerequisites for features that depend on services such as Intune, Defender for Cloud Apps, Microsoft Entra Workload ID, Identity Governance, 
 - Do not publish passwords, temporary device codes, access tokens, secrets, private keys, recovery codes, or unnecessary personal information.
 
 ## Repository roadmap
