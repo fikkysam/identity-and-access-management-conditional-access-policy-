@@ -55,6 +55,3 @@ In Report-only mode, the policy is evaluated but not enforced. The Report-only F
 
 The policy remains in Report-only mode. It has not been switched to On. Enforcement should only be considered after reviewing scope, confirming administrator exclusions, and validating a safe recovery path.
 
-## Evidence
-
-Screenshots are intended to be stored in the `screenshots/` folder.
