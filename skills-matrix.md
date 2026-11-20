@@ -8,7 +8,7 @@ This matrix maps the technical capabilities demonstrated in this repository to t
 |---|---|---|
 | Microsoft Entra ID | Configure and review Conditional Access policies, assignments, conditions, grant controls, and policy state | Labs 01–10; see each lab's configuration and test documentation |
 | Conditional Access evaluation | Interpret user, resource, authentication-flow, device-platform, and device-filter matches; distinguish Report-only from enforcement | Labs 01, 02, 06, 07 |
-| Authentication security | Require MFA for Azure management access and security-information registration | Labs 02 and 04 |
+| Authentication security | Require MFA for Azure management access and security-information registration; evaluate phishing-resistant authentication strength with a registered passkey | Labs 02, 04, and 13 |
 | Terms of Use | Configure and validate user acceptance through sign-in and audit evidence | Lab 03 |
 | Device-based access control | Apply Windows platform and device-ownership filters to browser access | Labs 06 and 07 |
 | Privileged Identity Management | Configure eligible Reports Reader access and validate activation requirements | Lab 08 |
@@ -22,13 +22,13 @@ This matrix maps the technical capabilities demonstrated in this repository to t
 
 | Tool / platform | How it is used in this portfolio | Evidence reference |
 |---|---|---|
-| Microsoft Entra admin center | Configure Conditional Access, authentication contexts, and identity security settings | Labs 01–10 |
+| Microsoft Entra admin center | Configure Conditional Access, authentication contexts, authentication strength, and identity security settings | Labs 01–10 and 13 |
 | Microsoft Graph PowerShell SDK | Initiate a delegated device-code authentication test and inspect the resulting Graph context | Lab 01 |
 | PowerShell | Run the documented Microsoft Graph PowerShell commands | Lab 01 |
-| Microsoft Entra sign-in logs | Inspect sign-in events, Conditional Access evaluation, authentication-flow matches, and error details | Labs 01–10, as applicable |
+| Microsoft Entra sign-in logs | Inspect sign-in events, Conditional Access evaluation, authentication-flow matches, authentication-strength requirements, and error details | Labs 01–10 and 13, as applicable |
 | Microsoft Entra audit logs | Verify Terms of Use acceptance and session-revocation-related audit activity | Labs 03 and 10 |
 | Microsoft Entra Privileged Identity Management | Configure and test eligible Reports Reader role activation | Lab 08 |
-| Microsoft Authenticator | Observe the MFA challenge during security-information registration | Lab 04 |
+| Microsoft Authenticator | Observe the MFA challenge during security-information registration and test-account setup | Labs 04 and 13 |
 | Microsoft Defender for Cloud Apps | Inspect session-control activity and matched-policy details for a SharePoint download restriction | Lab 09 |
 | SharePoint Online | Provide the test site, Documents library, browser session, and test file for session-control and CAE exercises | Labs 09 and 10 |
 | Azure Resource Manager | Serve as the target resource for the Azure management Conditional Access exercise | Lab 02 |
@@ -40,7 +40,7 @@ The following are portfolio roadmap items or broader learning interests, not com
 | Technology / capability | Portfolio status |
 |---|---|
 | AI Agent identity protection / Agent ID | Planned — Lab 12 |
-| Phishing-resistant authentication for privileged users | Planned — Lab 13 |
+| Phishing-resistant authentication for privileged users | Completed controlled test — Lab 13; see documented evidence limitations |
 | End-to-end device registration and join validation | Partially completed — Lab 05 |
 | Intune device compliance integration | Not demonstrated by the completed lab evidence reviewed for this matrix |
 | CyberArk, SailPoint, Saviynt, and ServiceNow integrations | Not demonstrated by this repository's completed lab evidence |
