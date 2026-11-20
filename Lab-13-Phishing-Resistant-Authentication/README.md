@@ -1,46 +1,39 @@
 # Lab 13 — Phishing-Resistant Authentication for Privileged Users
 
+<badge>Completed — controlled test</badge>
+
+A dedicated test account registered a passkey, and a subsequent successful sign-in was evaluated against the Conditional Access policy using the **Phishing-resistant MFA** authentication strength. See the evidence limitations in [test-results.md](test-results.md).
+
 ## Objective
 
-Require a phishing-resistant authentication method for a narrowly scoped privileged test identity.
+Require a phishing-resistant authentication method for a narrowly scoped privileged test identity using Microsoft Entra Conditional Access authentication strength.
 
-## Prerequisites
+## Scenario
 
-- Microsoft Entra Conditional Access capability.
-- Supported authentication strength.
-- Registered FIDO2/passkey or Windows Hello for Business method.
-- Dedicated test privileged identity.
-- Separate emergency-access account excluded from the policy.
-- Non-production tenant.
+A dedicated test account, `jones@fikayo.onmicrosoft.com`, was used to validate a phishing-resistant authentication flow. The Conditional Access policy was named **phishing resistant MFA** and targeted the **phishing resistant admin** group. The operator's Global Administrator account was excluded from the user assignment during policy configuration.
 
-## Implementation
+The test used a passkey saved in Google Password Manager. This is a passkey-based FIDO2/WebAuthn sign-in credential; it is not a physical USB security key.
 
-1. Create or identify a dedicated test privileged identity. Do not experiment with the only Global Administrator account.
-2. Register a supported phishing-resistant method for the test identity, such as a FIDO2 security key or Windows Hello for Business.
-3. Confirm the authentication strength available in Entra ID and the methods it accepts.
-4. Create a Conditional Access policy named `CA-LAB-13-Phishing-Resistant-Privileged`.
-5. Target only the dedicated test privileged identity or intended directory-role scope; exclude emergency-access accounts.
-6. Target the appropriate administrative resource(s).
-7. Under **Grant**, select **Require authentication strength** and choose **Phishing-resistant MFA**.
-8. Set the policy to Report-only, save, and test a sign-in with the registered method.
-9. Review the sign-in's **Authentication details** and **Conditional Access** tab.
-10. Enforce only after a successful controlled test and review of the policy scope/exclusions.
+## Lab structure
 
-## Validation
+| File / folder | Purpose |
+|---|---|
+| [configuration.md](configuration.md) | Policy scope, authentication strength, and passkey registration |
+| [test-results.md](test-results.md) | Controlled test, observed sign-in evaluation, and limitations |
+| [screenshots/README.md](screenshots/README.md) | Evidence index for the 13 screenshots |
 
-- The actual authentication method satisfies the configured phishing-resistant strength.
-- The matching sign-in event shows the expected Conditional Access policy result.
-- Authentication details identify the method used.
-- Excluded emergency-access accounts remain excluded.
+## Key outcome
 
-## Evidence to capture
+The sign-in log showed the **phishing resistant MFA** Conditional Access policy with a **Success** result. Authentication details showed successful first-factor and MFA requirement rows, each with the phishing-resistant requirement. The details displayed **Previously satisfied**, so the evidence supports that Entra considered the requirements satisfied for the sign-in.
 
-- Authentication method registration (no recovery codes or private key data).
-- Authentication strength configuration.
-- Conditional Access policy scope and emergency-access exclusion.
-- Successful sign-in and authentication details.
-- Policy evaluation and test notes.
+## Important limitations
 
-## Current status
+- The Authentication details view does not expose the specific passkey provider or credential identifier in the captured rows. The separate registration evidence shows that a passkey was created for the Jones test account.
+- The captured event shows the requirements as **Previously satisfied**; it does not prove that a fresh passkey prompt occurred during that exact sign-in.
+- This is a controlled lab validation, not a production rollout or proof of phishing-resistant authentication for every privileged identity.
+- Keep the policy scoped to the intended test group and retain a safe administrative exclusion. Do not enable a broad policy without reviewing its complete resource scope and exclusions.
 
-**Planned — configuration and controlled phishing-resistant sign-in test not yet performed.**
+## Related portfolio links
+
+- [Portfolio overview](../README.md)
+- [IAM skills and tools matrix](../skills-matrix.md)
