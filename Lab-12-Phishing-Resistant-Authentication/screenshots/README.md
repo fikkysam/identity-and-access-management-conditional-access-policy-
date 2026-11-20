@@ -1,4 +1,4 @@
-# Lab 13 — Screenshot Evidence
+# Lab 12 — Screenshot Evidence
 
 The following screenshots document the Conditional Access configuration, Jones account passkey registration, and sign-in evaluation.
 

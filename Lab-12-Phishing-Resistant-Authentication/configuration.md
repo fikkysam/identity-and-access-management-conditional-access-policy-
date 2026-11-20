@@ -1,4 +1,4 @@
-# Lab 13 — Configuration
+# Lab 12 — Configuration
 
 ## 1. Test identity and scope
 
@@ -12,7 +12,7 @@
 | Policy state | **On** in the captured policy overview |
 | Test credential | Passkey saved in Google Password Manager |
 
-The account used for this test was **Jones**, not `labadmin`. Earlier screenshots and tests involving other accounts are not attributed to this Lab 13 validation.
+The account used for this test was **Jones**, not `labadmin`. Earlier screenshots and tests involving other accounts are not attributed to this Lab 12 validation.
 
 ## 2. Conditional Access policy
 

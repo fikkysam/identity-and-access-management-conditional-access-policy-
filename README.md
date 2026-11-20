@@ -10,10 +10,10 @@ This repository documents practical work performed in a non-production Microsoft
 
 | Measure | Current status |
 |---|---:|
-| Selected labs | 12 |
+| Selected labs | 11 |
 | Completed | 10 |
 | Partially completed | 1 |
-| Planned | 1 |
+| Planned | 0 |
 
 The portfolio is organized as a progressive sequence, from foundational Conditional Access controls to advanced identity-security scenarios.
 
@@ -39,14 +39,13 @@ See the [IAM skills and tools matrix](skills-matrix.md) for a recruiter-friendly
 | 08 | [Authentication Context with PIM](Lab-08-Authentication-Context/README.md) | **Completed** — PIM Reports Reader activation and C1 Conditional Access evaluation verified |
 | 09 | [Conditional Access App Control](Lab-09-Conditional-Access-App-Control/README.md) | **Completed** — SharePoint download block verified in Defender session-control activity and matched-policy details |
 | 10 | [Continuous Access Evaluation (CAE)](Lab-10-Continuous-Access-Evaluation/README.md) | **Completed** — CAE-capable SharePoint sign-in, administrator session revocation, reauthentication, and audit evidence verified |
-| 12 | [AI Agent Identity Protection](Lab-12-AI-Agent-Identity-Protection/README.md) | **Planned** — Agent ID availability, preview status, and licensing to be checked |
-| 13 | [Phishing-Resistant Authentication for Privileged Users](Lab-13-Phishing-Resistant-Authentication/README.md) | **Completed** — Jones passkey registration and successful phishing-resistant authentication-strength evaluation documented |
+| 13 | [Phishing-Resistant Authentication for Privileged Users](Lab-12-Phishing-Resistant-Authentication/README.md) | **Completed** — Jones passkey registration and successful phishing-resistant authentication-strength evaluation documented |
 
 ### Progress
 
-- **Completed:** Labs 01, 02, 03, 04, 06, 07, 08, 09, 10, and 13.
+- **Completed:** Labs 01, 02, 03, 04, 06, 07, 08, 09, 10, and 12.
 - **Partially completed:** Lab 05. The policy configuration is documented, but the end-to-end device-registration test and matching sign-in evaluation remain pending.
-- **Planned:** Lab 12.
+- **Planned:** None.
 
 A lab is not marked complete solely because a policy was created. Its status reflects the test and evidence currently documented in the repository.
 
@@ -62,7 +61,7 @@ The completed labs provide practical evidence across these areas:
 - **Session lifecycle security:** Continuous Access Evaluation concepts, administrator session revocation, and reauthentication analysis.
 - **Identity troubleshooting and evidence:** sign-in logs, policy evaluation details, audit evidence, application behavior, and documented test limitations.
 
-The remaining planned lab extends the portfolio into AI agent identity protection. Lab 13 documents a controlled phishing-resistant authentication-strength test.
+Lab 12 documents a controlled phishing-resistant authentication-strength test.
 
 ## How each lab is documented
 
@@ -105,7 +104,7 @@ The next development priorities are:
 
 1. Complete the end-to-end validation for Lab 05 when the required VM/device capability is available.
 2. Continue standardizing documentation and screenshot indexes across the existing labs.
-3. Implement and validate the remaining planned advanced identity-security lab (12), subject to licensing and feature availability.
+3. Continue improving the completed labs and complete the pending end-to-end validation for Lab 05.
 
 ## Learning objective
 
