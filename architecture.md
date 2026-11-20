@@ -11,6 +11,7 @@ flowchart TB
         ADMIN["Separate administrator identity"]
         CA["Conditional Access policy evaluation"]
         MFA["Multifactor authentication"]
+        PASSKEY["Passkey / phishing-resistant authentication strength"]
         REG["Register security information user action"]
         AUTHCTX["Authentication context: Sensitive-Operation (C1)"]
         PIM["Privileged Identity Management"]
@@ -34,6 +35,7 @@ flowchart TB
     TEST --> CA
     ADMIN -. "configures policies and initiates controlled admin actions" .-> CA
     CA --> MFA
+    CA --> PASSKEY
     CA --> REG
     CA --> ARM
     CA --> M365
@@ -62,6 +64,7 @@ Dedicated test identities authenticate through Microsoft Entra ID. Conditional A
 
 - MFA for Azure Resource Manager access (Lab 02; Report-only evaluation).
 - MFA for security-information registration (Lab 04).
+- Phishing-resistant authentication strength with a registered passkey (Lab 11).
 - Operating-system and device-ownership restrictions (Labs 06 and 07).
 - Authentication context C1 combined with PIM Reports Reader activation (Lab 08).
 
@@ -90,6 +93,7 @@ Lab 10 records a CAE-capable SharePoint sign-in, administrator-initiated session
 | PIM and authentication context | 08 | Eligible Reports Reader activation and C1 Conditional Access evaluation |
 | Defender for Cloud Apps | 09 | SharePoint session routing and download-block enforcement evidence |
 | Continuous Access Evaluation scenario | 10 | CAE-capable sign-in, session revocation, reauthentication, and audit evidence |
+| Phishing-resistant authentication | 11 | Jones passkey registration and successful phishing-resistant authentication-strength evaluation |
 
 ## Scope and interpretation
 
