@@ -39,11 +39,11 @@ See the [IAM skills and tools matrix](skills-matrix.md) for a recruiter-friendly
 | 08 | [Authentication Context with PIM](Lab-08-Authentication-Context/README.md) | **Completed** — PIM Reports Reader activation and C1 Conditional Access evaluation verified |
 | 09 | [Conditional Access App Control](Lab-09-Conditional-Access-App-Control/README.md) | **Completed** — SharePoint download block verified in Defender session-control activity and matched-policy details |
 | 10 | [Continuous Access Evaluation (CAE)](Lab-10-Continuous-Access-Evaluation/README.md) | **Completed** — CAE-capable SharePoint sign-in, administrator session revocation, reauthentication, and audit evidence verified |
-| 13 | [Phishing-Resistant Authentication for Privileged Users](Lab-12-Phishing-Resistant-Authentication/README.md) | **Completed** — Jones passkey registration and successful phishing-resistant authentication-strength evaluation documented |
+| 11 | [Phishing-Resistant Authentication for Privileged Users](Lab-11-Phishing-Resistant-Authentication/README.md) | **Completed** — Jones passkey registration and successful phishing-resistant authentication-strength evaluation documented |
 
 ### Progress
 
-- **Completed:** Labs 01, 02, 03, 04, 06, 07, 08, 09, 10, and 12.
+- **Completed:** Labs 01, 02, 03, 04, 06, 07, 08, 09, 10, and 11.
 - **Partially completed:** Lab 05. The policy configuration is documented, but the end-to-end device-registration test and matching sign-in evaluation remain pending.
 - **Planned:** None.
 
@@ -61,7 +61,7 @@ The completed labs provide practical evidence across these areas:
 - **Session lifecycle security:** Continuous Access Evaluation concepts, administrator session revocation, and reauthentication analysis.
 - **Identity troubleshooting and evidence:** sign-in logs, policy evaluation details, audit evidence, application behavior, and documented test limitations.
 
-Lab 12 documents a controlled phishing-resistant authentication-strength test.
+Lab 11 documents a controlled phishing-resistant authentication-strength test.
 
 ## How each lab is documented
 
