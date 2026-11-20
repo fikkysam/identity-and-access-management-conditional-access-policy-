@@ -29,10 +29,6 @@ The screenshot showing the proxy notification uses monitor-mode wording. It is e
 5. Review the browser response and Defender for Cloud Apps session-control activity.
 6. Inspect the matched-policy details to confirm the associated policy.
 
-## Important documentation boundary
-
-The archived screenshots establish the policy overview, proxy routing, SharePoint test setup, blocked download, session-control activity, and matched-policy details. They do not preserve every individual policy wizard field as a separate screenshot. Do not infer unrecorded settings such as exact user identifiers, resource names, or detailed session policy rule values beyond what is visible in the evidence.
-
 ## Evidence
 
 See [screenshots/README.md](screenshots/README.md) for the nine-image index and the distinction between routing evidence and enforcement evidence.
