@@ -4,7 +4,7 @@
 
 Use a Microsoft Entra authentication context and Conditional Access policy to add an MFA requirement to Privileged Identity Management (PIM) activation for an eligible Microsoft Entra role assignment.
 
-This implementation uses PIM directly. A custom Node.js application is **not** part of this lab.
+This implementation uses PIM directly. 
 
 ## Lab environment
 
