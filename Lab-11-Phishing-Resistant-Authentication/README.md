@@ -1,4 +1,4 @@
-# Lab 12 — Phishing-Resistant Authentication for Privileged Users
+# Lab 11 — Phishing-Resistant Authentication for Privileged Users
 
 <badge>Completed — controlled test</badge>
 
